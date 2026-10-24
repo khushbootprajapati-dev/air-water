@@ -888,3 +888,35 @@ select:focus-visible {
         min-height: 1150px;
     }
 }
+
+
+/* Three-language selector */
+.language-picker {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    flex: 0 0 auto;
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+}
+.language-picker select {
+    max-width: 132px;
+    min-height: 40px;
+    padding: 8px 28px 8px 10px;
+    border: 1px solid #d5e4d8;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--dark);
+    font: inherit;
+    cursor: pointer;
+}
+@media (max-width: 760px) {
+    .navbar { flex-wrap: wrap; }
+    .language-picker { margin-left: auto; }
+    .language-picker select { max-width: 118px; }
+}
+@media (max-width: 420px) {
+    .language-picker { font-size: 12px; }
+    .language-picker select { max-width: 100px; min-height: 38px; padding-left: 7px; }
+}
