@@ -471,3 +471,13 @@ h3 { font-size: 1.25rem; }
     justify-content: center;
   }
 }
+
+
+.quiz-option.is-answer-correct {
+  border-color: #24834b;
+  background: #e6f5e9;
+}
+.quiz-option.is-answer-incorrect {
+  border-color: #b95343;
+  background: #fff0ec;
+}
