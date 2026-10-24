@@ -188,7 +188,6 @@ if (languageSelect) {
     languageSelect.addEventListener("change", () => { applyLanguage(languageSelect.value); renderQuiz(); });
 }
 applyLanguage(currentLanguage);
-renderQuiz();
 
 // Mobile navigation
 menuBtn.addEventListener("click", () => {
@@ -379,3 +378,6 @@ document.getElementById("quizFinish").addEventListener("click",()=>{
  quizFinished=true;renderQuiz();
 });
 document.getElementById("quizRetry").addEventListener("click",()=>{quizCurrent=0;quizAnswers=Array(10).fill(null);quizFinished=false;renderQuiz();});
+
+// Render the quiz after its question bank and language labels are initialized.
+renderQuiz();
