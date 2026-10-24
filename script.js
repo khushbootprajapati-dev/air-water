@@ -1,869 +1,300 @@
-
-/* ================================
-   AIR & WATER QUALITY AWARENESS
-   PROFESSIONAL WEBSITE CSS
-================================ */
-
-/* ---------- BASIC RESET ---------- */
-
-* {
-    margin: 0;
-    padding: 0;
-    box- sizing: border - box;
-scroll - behavior: smooth;
-}
-
-body {
-    font - family: "Segoe UI", Arial, sans - serif;
-    color: #17324d;
-    background: #ffffff;
-    line - height: 1.6;
-    overflow - x: hidden;
-}
-
-
-/* ---------- NAVIGATION ---------- */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100 %;
-    z - index: 1000;
-
-    display: flex;
-    justify - content: space - between;
-    align - items: center;
-
-    padding: 18px 7 %;
-
-    background: rgba(255, 255, 255, 0.92);
-    backdrop - filter: blur(12px);
-
-    box - shadow: 0 4px 20px rgba(0, 80, 100, 0.08);
-}
-
-.logo {
-    font - size: 22px;
-    font - weight: 700;
-    color: #087f8c;
-}
-
-.nav - links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav - links a {
-    text - decoration: none;
-    color: #17324d;
-    font - weight: 600;
-    font - size: 15px;
-
-    transition: 0.3s ease;
-}
-
-.nav - links a:hover {
-    color: #08a88a;
-}
-
-
-/* ---------- HERO SECTION ---------- */
-
-.hero {
-    min - height: 100vh;
-
-    position: relative;
-    overflow: hidden;
-
-    display: flex;
-    align - items: center;
-
-    padding: 120px 8 % 70px;
-
-    background:
-    linear - gradient(135deg,
-        #dff9f4 0 %,
-        #e7f8ff 50 %,
-        #f5fff9 100 %);
-}
-
-.hero - content {
-    max - width: 650px;
-    z - index: 5;
-
-    animation: fadeUp 1.2s ease;
-}
-
-.small - title {
-    color: #078c87;
-    font - weight: 700;
-    letter - spacing: 3px;
-    font - size: 14px;
-    margin - bottom: 15px;
-}
-
-.hero h1 {
-    font - size: clamp(45px, 7vw, 82px);
-    line - height: 1.05;
-    color: #123b56;
-    margin - bottom: 25px;
-}
-
-.hero h1 span {
-    display: block;
-    color: #079c82;
-}
-
-.hero - content > p: not(.small - title) {
-    font - size: 20px;
-    max - width: 550px;
-    color: #496675;
-    margin - bottom: 30px;
-}
-
-
-/* ---------- BUTTONS ---------- */
-
-.hero - buttons {
-    display: flex;
-    gap: 15px;
-    flex - wrap: wrap;
-}
-
-.btn {
-    display: inline - block;
-
-    text - decoration: none;
-    padding: 14px 27px;
-
-    border - radius: 30px;
-
-    background: linear - gradient(135deg, #079c82, #087f9b);
-    color: white;
-
-    font - weight: 700;
-
-    box - shadow: 0 10px 25px rgba(0, 140, 130, 0.25);
-
-    transition: 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-4px);
-    box - shadow: 0 15px 30px rgba(0, 140, 130, 0.35);
-}
-
-.btn.secondary {
-    background: white;
-    color: #087f8c;
-    border: 2px solid #087f8c;
-}
-
-
-/* ---------- HERO NATURE ---------- */
-
-.nature - illustration {
-    position: absolute;
-    right: 8 %;
-    bottom: 5 %;
-
-    width: 430px;
-    height: 430px;
-
-    border - radius: 50 %;
-
-    background: rgba(255, 255, 255, 0.55);
-
-    box - shadow:
-    0 25px 70px rgba(0, 100, 120, 0.12);
-
-    animation: float 5s ease -in -out infinite;
-}
-
-.sun {
-    position: absolute;
-    top: 45px;
-    right: 55px;
-    font - size: 70px;
-
-    animation: spinSlow 12s linear infinite;
-}
-
-.cloud {
-    position: absolute;
-    top: 95px;
-    left: 35px;
-    font - size: 75px;
-
-    animation: cloudMove 5s ease -in -out infinite;
-}
-
-.tree {
-    position: absolute;
-    bottom: 75px;
-    left: 100px;
-    font - size: 130px;
-}
-
-.water - wave {
-    position: absolute;
-    bottom: 45px;
-    left: 55px;
-
-    color: #159fc0;
-    font - size: 40px;
-
-    animation: waveMove 2s ease -in -out infinite;
-}
-
-
-/* ---------- FLOATING PARTICLES ---------- */
-
-.air - particles {
-    position: absolute;
-    top: 30 %;
-    left: 5 %;
-
-    font - size: 30px;
-    letter - spacing: 25px;
-
-    color: rgba(0, 150, 160, 0.25);
-
-    animation: particlesFloat 4s ease -in -out infinite;
-}
-
-
-/* ---------- GENERAL SECTION ---------- */
-
-.section {
-    padding: 100px 8 %;
-    background: #ffffff;
-}
-
-.light - section {
-    background: #f2fbfa;
-}
-
-.section - title {
-    text - align: center;
-    max - width: 750px;
-    margin: 0 auto 55px;
-}
-
-.section - title p {
-    color: #079c82;
-    font - weight: 700;
-    letter - spacing: 2px;
-    font - size: 13px;
-    margin - bottom: 8px;
-}
-
-.section - title h2 {
-    font - size: clamp(30px, 4vw, 48px);
-    color: #123b56;
-}
-
-
-/* ---------- ABOUT CARDS ---------- */
-
-.about - grid {
-    max - width: 1100px;
-    margin: auto;
-
-    display: grid;
-    grid - template - columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.about - card {
-    padding: 35px 28px;
-
-    background: white;
-
-    border - radius: 22px;
-
-    box - shadow: 0 15px 40px rgba(0, 80, 100, 0.09);
-
-    text - align: center;
-
-    transition: 0.4s ease;
-}
-
-.about - card:hover {
-    transform: translateY(-12px);
-    box - shadow: 0 25px 50px rgba(0, 130, 130, 0.18);
-}
-
-.icon {
-    font - size: 50px;
-    margin - bottom: 18px;
-
-    animation: iconFloat 3s ease -in -out infinite;
-}
-
-.about - card h3 {
-    margin - bottom: 10px;
-    color: #087f8c;
-}
-
-
-/* ---------- CONTENT ROW ---------- */
-
-.content - row {
-    max - width: 1100px;
-    margin: auto;
-
-    display: grid;
-    grid - template - columns: 1fr 1fr;
-    gap: 45px;
-
-    align - items: center;
-}
-
-.content - box {
-    padding: 35px;
-
-    background: white;
-
-    border - radius: 22px;
-
-    box - shadow: 0 15px 40px rgba(0, 80, 100, 0.08);
-
-    transition: 0.3s ease;
-}
-
-.content - box:hover {
-    transform: translateY(-6px);
-}
-
-.content - box h3 {
-    color: #087f8c;
-    margin - bottom: 15px;
-}
-
-.content - box ul {
-    margin - top: 20px;
-    list - style: none;
-}
-
-.content - box li {
-    margin: 12px 0;
-}
-
-
-/* ---------- QUALITY METER ---------- */
-
-.quality - meter {
-    padding: 35px;
-
-    background: linear - gradient(145deg, #ffffff, #e9fbf8);
-
-    border - radius: 22px;
-
-    box - shadow: 0 15px 40px rgba(0, 80, 100, 0.08);
-}
-
-.meter {
-    width: 100 %;
-    height: 20px;
-
-    background: #d9e9e9;
-
-    border - radius: 20px;
-
-    overflow: hidden;
-
-    margin: 25px 0 15px;
-}
-
-.meter - fill {
-    height: 100 %;
-    width: 0;
-
-    border - radius: 20px;
-
-    background: linear - gradient(90deg, #f3c34f, #f28c28);
-
-    animation: meterFill 2s ease forwards;
-}
-
-.quality - meter strong {
-    color: #e47725;
-}
-
-
-/* ---------- WATER ANIMATION ---------- */
-
-.water - animation {
-    min - height: 300px;
-
-    display: flex;
-    align - items: center;
-    justify - content: center;
-
-    position: relative;
-
-    font - size: 130px;
-
-    background: linear - gradient(145deg, #e2faff, #ffffff);
-
-    border - radius: 30px;
-
-    box - shadow: 0 15px 40px rgba(0, 100, 150, 0.1);
-}
-
-.drop {
-    position: absolute;
-
-    top: 10px;
-    left: 25 %;
-
-    font - size: 40px;
-
-    animation: dropFall 3s linear infinite;
-}
-
-.drop2 {
-    left: 70 %;
-    animation - delay: 1.5s;
-}
-
-
-/* ---------- PROBLEM CARDS ---------- */
-
-.problem - grid {
-    max - width: 1100px;
-    margin: auto;
-
-    display: grid;
-    grid - template - columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.problem - card {
-    padding: 30px 20px;
-
-    background: white;
-
-    border - radius: 20px;
-
-    text - align: center;
-
-    box - shadow: 0 12px 30px rgba(0, 80, 100, 0.08);
-
-    transition: 0.35s ease;
-}
-
-.problem - card:hover {
-    transform: translateY(-10px) scale(1.02);
-}
-
-.problem - card span {
-    font - size: 45px;
-    display: block;
-    margin - bottom: 15px;
-}
-
-.problem - card h3 {
-    color: #087f8c;
-    margin - bottom: 10px;
-}
-
-
-/* ---------- SURVEY ---------- */
-
-.survey - section {
-    background:
-    linear - gradient(135deg, #073b4c, #087f8c);
-    color: white;
-}
-
-.survey - section.section - title p,
-.survey - section.section - title h2 {
-    color: white;
-}
-
-.survey - box {
-    max - width: 750px;
-    margin: auto;
-
-    padding: 45px;
-
-    text - align: center;
-
-    background: rgba(255, 255, 255, 0.12);
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    border - radius: 30px;
-
-    backdrop - filter: blur(12px);
-
-    box - shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
-}
-
-.survey - box h3 {
-    font - size: 27px;
-    margin - bottom: 15px;
-}
-
-.survey - stats {
-    display: flex;
-    justify - content: center;
-    gap: 80px;
-
-    margin: 35px 0;
-}
-
-.survey - stats div {
-    display: flex;
-    flex - direction: column;
-}
-
-.survey - stats strong {
-    font - size: 48px;
-    color: #a8ffe9;
-}
-
-.survey - stats span {
-    font - size: 14px;
-}
-
-.survey - btn {
-    background: white;
-    color: #087f8c;
-}
-
-.note {
-    margin - top: 20px;
-    opacity: 0.8;
-    font - size: 14px;
-}
-
-
-/* ---------- SOLUTIONS ---------- */
-
-.solution - grid {
-    max - width: 1100px;
-    margin: auto;
-
-    display: grid;
-    grid - template - columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.solution - card {
-    padding: 30px 22px;
-
-    border: 1px solid #dceeed;
-
-    border - radius: 20px;
-
-    text - align: center;
-
-    transition: 0.35s ease;
-
-    background: white;
-}
-
-.solution - card:hover {
-    transform: translateY(-10px);
-    border - color: #079c82;
-
-    box - shadow: 0 18px 40px rgba(0, 130, 130, 0.12);
-}
-
-.solution - card span {
-    font - size: 45px;
-}
-
-.solution - card h3 {
-    color: #087f8c;
-    margin: 15px 0 8px;
-}
-
-
-/* ---------- STUDENT PROJECT ---------- */
-
-.student - section {
-    padding: 90px 8 %;
-
-    background:
-    linear - gradient(135deg, #e7faf5, #e7f7ff);
-}
-
-.student - card {
-    max - width: 900px;
-    margin: auto;
-
-    padding: 50px;
-
-    text - align: center;
-
-    background: white;
-
-    border - radius: 30px;
-
-    box - shadow: 0 20px 50px rgba(0, 80, 100, 0.1);
-}
-
-.student - card > p {
-    color: #079c82;
-    font - weight: 700;
-    letter - spacing: 2px;
-}
-
-.student - card h2 {
-    margin: 12px 0 35px;
-    color: #123b56;
-}
-
-.student - details {
-    display: grid;
-    grid - template - columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.student - details div {
-    padding: 20px;
-
-    background: #f1fbf9;
-
-    border - radius: 15px;
-}
-
-.student - details span,
-.student - details strong {
-    display: block;
-}
-
-.student - details span {
-    color: #66818b;
-    font - size: 13px;
-    margin - bottom: 5px;
-}
-
-.student - details strong {
-    color: #087f8c;
-}
-
-
-/* ---------- FOOTER ---------- */
-
-footer {
-    padding: 45px 8 %;
-
-    text - align: center;
-
-    background: #092f40;
-
-    color: white;
-}
-
-footer h3 {
-    font - size: 23px;
-    margin - bottom: 8px;
-}
-
-footer p {
-    color: #b9d7dc;
-}
-
-.copyright {
-    margin - top: 20px;
-    font - size: 13px;
-}
-
-
-/* =================================
-   ANIMATIONS
-================================= */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
+"use strict";
+
+/*
+ * EcoAware interactions.
+ * Text-to-speech uses the browser's Web Speech API and installed voices.
+ * Add the real Google Forms URL to SURVEY_FORM_URL when it is available.
+ */
+const SURVEY_FORM_URL = "";
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("site-nav");
+  const yearLabel = document.getElementById("current-year");
+
+  if (yearLabel) {
+    yearLabel.textContent = String(new Date().getFullYear());
+  }
+
+  function closeNavigation() {
+    if (!navToggle || !navLinks) return;
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Open navigation menu");
+    navLinks.classList.remove("is-open");
+  }
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", function () {
+      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+      navLinks.classList.toggle("is-open", !isOpen);
+    });
+
+    navLinks.querySelectorAll("a[href^='#']").forEach(function (link) {
+      link.addEventListener("click", closeNavigation);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeNavigation();
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!navToggle.contains(event.target) && !navLinks.contains(event.target)) {
+        closeNavigation();
+      }
+    });
+  }
+
+  /*
+   * Survey link stays disabled until a valid Google Forms URL is provided.
+   * This avoids linking to the wrong form or using a placeholder destination.
+   */
+  const surveyButton = document.getElementById("survey-form-button");
+  const surveyStatus = document.getElementById("survey-form-status");
+
+  function isGoogleFormsUrl(rawUrl) {
+    try {
+      const parsedUrl = new URL(rawUrl);
+      const host = parsedUrl.hostname.toLowerCase();
+      return parsedUrl.protocol === "https:" &&
+        (host === "docs.google.com" || host === "forms.gle");
+    } catch (error) {
+      return false;
+    }
+  }
+
+  if (surveyButton && SURVEY_FORM_URL && isGoogleFormsUrl(SURVEY_FORM_URL)) {
+    const surveyLink = document.createElement("a");
+    surveyLink.id = "survey-form-button";
+    surveyLink.className = surveyButton.className;
+    surveyLink.href = SURVEY_FORM_URL;
+    surveyLink.target = "_blank";
+    surveyLink.rel = "noopener noreferrer";
+    surveyLink.textContent = "Open Google Form";
+    surveyLink.setAttribute("aria-describedby", "survey-form-status");
+    surveyButton.replaceWith(surveyLink);
+    if (surveyStatus) surveyStatus.textContent = "The survey opens in a new tab.";
+  } else if (surveyStatus) {
+    surveyStatus.textContent = "The Google Form URL has not been provided for this project yet. The button will be enabled when the correct link is added.";
+  }
+
+  /*
+   * Text-to-speech: read the main page content in short chunks for improved
+   * browser compatibility. Voice availability depends on the user's device.
+   */
+  const playButton = document.getElementById("speaker-play");
+  const pauseButton = document.getElementById("speaker-pause");
+  const resumeButton = document.getElementById("speaker-resume");
+  const stopButton = document.getElementById("speaker-stop");
+  const voiceSelect = document.getElementById("voice-select");
+  const speakerStatus = document.getElementById("speaker-status");
+  const mainContent = document.getElementById("main-content");
+
+  const speechSupported = "speechSynthesis" in window &&
+    "SpeechSynthesisUtterance" in window;
+
+  let availableVoices = [];
+  let speechChunks = [];
+  let speechChunkIndex = 0;
+  let speechRunId = 0;
+  let isReading = false;
+  let isPaused = false;
+
+  function setSpeakerStatus(message) {
+    if (speakerStatus) speakerStatus.textContent = message;
+  }
+
+  function updateSpeakerButtons() {
+    if (playButton) playButton.disabled = !speechSupported || isReading;
+    if (pauseButton) pauseButton.disabled = !speechSupported || !isReading || isPaused;
+    if (resumeButton) resumeButton.disabled = !speechSupported || !isReading || !isPaused;
+    if (stopButton) stopButton.disabled = !speechSupported || (!isReading && !isPaused);
+  }
+
+  function populateVoices() {
+    if (!speechSupported || !voiceSelect) return;
+
+    const previousVoice = voiceSelect.value;
+    availableVoices = window.speechSynthesis.getVoices();
+    voiceSelect.replaceChildren();
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "Default browser voice";
+    voiceSelect.appendChild(defaultOption);
+
+    availableVoices
+      .slice()
+      .sort(function (first, second) {
+        return first.lang.localeCompare(second.lang) || first.name.localeCompare(second.name);
+      })
+      .forEach(function (voice) {
+        const option = document.createElement("option");
+        option.value = voice.voiceURI;
+        option.textContent = voice.name + " (" + voice.lang + ")";
+        voiceSelect.appendChild(option);
+      });
+
+    if (previousVoice && availableVoices.some(function (voice) { return voice.voiceURI === previousVoice; })) {
+      voiceSelect.value = previousVoice;
+    }
+  }
+
+  function splitTextIntoChunks(text, maxLength) {
+    const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    const chunks = [];
+    let currentChunk = "";
+
+    sentences.forEach(function (sentence) {
+      const cleanSentence = sentence.replace(/\s+/g, " ").trim();
+      if (!cleanSentence) return;
+
+      if (cleanSentence.length > maxLength) {
+        if (currentChunk) {
+          chunks.push(currentChunk);
+          currentChunk = "";
+        }
+        const words = cleanSentence.split(/\s+/);
+        let wordChunk = "";
+        words.forEach(function (word) {
+          if ((wordChunk + " " + word).trim().length > maxLength && wordChunk) {
+            chunks.push(wordChunk);
+            wordChunk = word;
+          } else {
+            wordChunk = (wordChunk + " " + word).trim();
+          }
+        });
+        if (wordChunk) chunks.push(wordChunk);
+        return;
+      }
+
+      if ((currentChunk + " " + cleanSentence).trim().length > maxLength && currentChunk) {
+        chunks.push(currentChunk);
+        currentChunk = cleanSentence;
+      } else {
+        currentChunk = (currentChunk + " " + cleanSentence).trim();
+      }
+    });
+
+    if (currentChunk) chunks.push(currentChunk);
+    return chunks;
+  }
+
+  function getPageText() {
+    if (!mainContent) return "";
+    const pageCopy = mainContent.cloneNode(true);
+    pageCopy.querySelectorAll(".speaker-section, button, select, script, style, nav").forEach(function (element) {
+      element.remove();
+    });
+    return (pageCopy.innerText || pageCopy.textContent || "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function speakCurrentChunk(runId) {
+    if (!speechSupported || runId !== speechRunId) return;
+
+    if (speechChunkIndex >= speechChunks.length) {
+      isReading = false;
+      isPaused = false;
+      updateSpeakerButtons();
+      setSpeakerStatus("Finished reading the page.");
+      return;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    const utterance = new SpeechSynthesisUtterance(speechChunks[speechChunkIndex]);
+    const chosenVoice = voiceSelect && voiceSelect.value
+      ? availableVoices.find(function (voice) { return voice.voiceURI === voiceSelect.value; })
+      : null;
 
-@keyframes float {
-    0 %, 100 % {
-        transform: translateY(0);
-    }
+    if (chosenVoice) utterance.voice = chosenVoice;
+    utterance.rate = 1;
+    utterance.pitch = 1;
 
-    50 % {
-        transform: translateY(-18px);
-    }
-}
+    utterance.onend = function () {
+      if (runId !== speechRunId || !isReading) return;
+      speechChunkIndex += 1;
+      speakCurrentChunk(runId);
+    };
 
-@keyframes cloudMove {
-    0 %, 100 % {
-        transform: translateX(0);
-    }
+    utterance.onerror = function (event) {
+      if (runId !== speechRunId || event.error === "interrupted" || event.error === "canceled") return;
+      isReading = false;
+      isPaused = false;
+      updateSpeakerButtons();
+      setSpeakerStatus("Speech stopped because the selected browser voice reported an error. Try another voice or refresh the page.");
+    };
 
-    50 % {
-        transform: translateX(35px);
-    }
-}
+    window.speechSynthesis.speak(utterance);
+  }
 
-@keyframes spinSlow {
-    from {
-        transform: rotate(0deg);
+  if (!speechSupported) {
+    [playButton, pauseButton, resumeButton, stopButton, voiceSelect].forEach(function (control) {
+      if (control) control.disabled = true;
+    });
+    setSpeakerStatus("Text-to-speech is not supported in this browser. Try an up-to-date version of Chrome, Edge, or Safari.");
+  } else {
+    populateVoices();
+    if (typeof window.speechSynthesis.addEventListener === "function") {
+      window.speechSynthesis.addEventListener("voiceschanged", populateVoices);
+    } else {
+      window.speechSynthesis.onvoiceschanged = populateVoices;
     }
+    updateSpeakerButtons();
 
-    to {
-        transform: rotate(360deg);
-    }
-}
+    if (playButton) {
+      playButton.addEventListener("click", function () {
+        const pageText = getPageText();
+        if (!pageText) {
+          setSpeakerStatus("There is no page text available to read.");
+          return;
+        }
 
-@keyframes waveMove {
-    0 %, 100 % {
-        transform: translateX(0);
-    }
-
-    50 % {
-        transform: translateX(20px);
-    }
-}
-
-@keyframes particlesFloat {
-    0 %, 100 % {
-        transform: translateY(0);
-    }
-
-    50 % {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes iconFloat {
-    0 %, 100 % {
-        transform: translateY(0);
-    }
-
-    50 % {
-        transform: translateY(-8px);
-    }
-}
-
-@keyframes meterFill {
-    from {
-        width: 0;
+        speechRunId += 1;
+        const currentRun = speechRunId;
+        window.speechSynthesis.cancel();
+        speechChunks = splitTextIntoChunks(pageText, 220);
+        speechChunkIndex = 0;
+        isReading = true;
+        isPaused = false;
+        updateSpeakerButtons();
+        setSpeakerStatus("Reading page content aloud. Use Pause or Stop at any time.");
+        speakCurrentChunk(currentRun);
+      });
     }
 
-    to {
-        width: 65 %;
-    }
-}
-
-@keyframes dropFall {
-    0 % {
-        transform: translateY(-30px);
-        opacity: 0;
-    }
-
-    20 % {
-        opacity: 1;
+    if (pauseButton) {
+      pauseButton.addEventListener("click", function () {
+        if (!isReading || isPaused) return;
+        window.speechSynthesis.pause();
+        isPaused = true;
+        updateSpeakerButtons();
+        setSpeakerStatus("Reading paused. Press Resume to continue.");
+      });
     }
 
-    100 % {
-        transform: translateY(250px);
-        opacity: 0;
-    }
-}
-
-
-/* =================================
-   RESPONSIVE DESIGN
-================================= */
-
-@media(max - width: 900px) {
-
-    .navbar {
-        padding: 15px 5 %;
+    if (resumeButton) {
+      resumeButton.addEventListener("click", function () {
+        if (!isReading || !isPaused) return;
+        window.speechSynthesis.resume();
+        isPaused = false;
+        updateSpeakerButtons();
+        setSpeakerStatus("Resuming page narration.");
+      });
     }
 
-    .nav - links {
-        gap: 12px;
+    if (stopButton) {
+      stopButton.addEventListener("click", function () {
+        speechRunId += 1;
+        window.speechSynthesis.cancel();
+        speechChunks = [];
+        speechChunkIndex = 0;
+        isReading = false;
+        isPaused = false;
+        updateSpeakerButtons();
+        setSpeakerStatus("Reading stopped.");
+      });
     }
-
-    .nav - links a {
-        font - size: 12px;
-    }
-
-    .nature - illustration {
-        opacity: 0.35;
-        right: -100px;
-    }
-
-    .about - grid,
-    .problem - grid,
-    .solution - grid {
-        grid - template - columns: repeat(2, 1fr);
-    }
-
-    .content - row {
-        grid - template - columns: 1fr;
-    }
-
-    .student - details {
-        grid - template - columns: 1fr;
-    }
-}
-
-
-@media(max - width: 600px) {
-
-    .navbar {
-        position: relative;
-
-        flex - direction: column;
-        gap: 12px;
-    }
-
-    .nav - links {
-        flex - wrap: wrap;
-        justify - content: center;
-    }
-
-    .hero {
-        padding - top: 70px;
-        text - align: center;
-    }
-
-    .hero - content {
-        margin: auto;
-    }
-
-    .hero - buttons {
-        justify - content: center;
-    }
-
-    .nature - illustration {
-        display: none;
-    }
-
-    .about - grid,
-    .problem - grid,
-    .solution - grid {
-        grid - template - columns: 1fr;
-    }
-
-    .survey - stats {
-        gap: 35px;
-    }
-
-    .survey - box {
-        padding: 30px 20px;
-    }
-
-    .student - card {
-        padding: 35px 20px;
-    }
-}
+  }
+});
