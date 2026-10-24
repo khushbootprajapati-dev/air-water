@@ -31,6 +31,7 @@
           <li><a href="#air">Air Quality</a></li>
           <li><a href="#water">Water Quality</a></li>
           <li><a href="#survey">Survey</a></li>
+          <li><a href="#quiz">Quick Quiz</a></li>
           <li><a href="#solutions">Solutions</a></li>
         </ul>
       </nav>
@@ -286,6 +287,37 @@
           <article class="solution-card"><span class="solution-icon icon-recycle" aria-hidden="true">↻</span><h3>Reduce plastic and waste</h3><p>Carry reusable bags and bottles, separate waste, and use local recycling options where available.</p></article>
           <article class="solution-card"><span class="solution-icon icon-water" aria-hidden="true">滴</span><h3>Use water carefully</h3><p>Fix leaks, avoid unnecessary waste, and keep oils, chemicals, and litter out of drains and waterways.</p></article>
           <article class="solution-card"><span class="solution-icon icon-transport" aria-hidden="true">↗</span><h3>Choose cleaner travel</h3><p>Walk, cycle, share rides, or use public transport when practical and safe.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="content-section quiz-section" id="quiz" aria-labelledby="quiz-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Test what you learned</p>
+          <h2 id="quiz-title">A quick air and water quiz.</h2>
+          <p>Answer five short questions. You will see the correct answer and a simple explanation after each response. Your score stays in this page and is not sent anywhere.</p>
+        </div>
+
+        <div class="quiz-card" id="quiz-card">
+          <div class="quiz-card-top">
+            <p class="quiz-progress" id="quiz-progress">Question 1 of 5</p>
+            <p class="quiz-score" id="quiz-score" aria-live="polite">Score: 0 / 5</p>
+          </div>
+          <form id="quiz-form">
+            <fieldset class="quiz-fieldset">
+              <legend class="quiz-question" id="quiz-question">Loading the first question…</legend>
+              <div class="quiz-options" id="quiz-options"></div>
+            </fieldset>
+            <div class="quiz-actions">
+              <button class="button button-primary" id="quiz-check" type="submit">Check answer</button>
+              <button class="button button-soft" id="quiz-next" type="button" disabled>Next question</button>
+              <button class="button button-ghost" id="quiz-restart" type="button">Restart quiz</button>
+            </div>
+          </form>
+          <p class="quiz-feedback" id="quiz-feedback" role="status" aria-live="polite">Choose one answer, then select Check answer.</p>
+          <p class="quiz-privacy">This is a learning activity only. It does not collect personal information.</p>
         </div>
       </div>
     </section>
