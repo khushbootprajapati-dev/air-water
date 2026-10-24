@@ -961,3 +961,6 @@ select:focus-visible {
  .quiz-controls { display:grid; grid-template-columns:1fr 1fr; }
  .quiz-controls .btn { width:100%; }
 }
+
+/* Ensure quiz controls with the hidden attribute stay hidden despite button styles. */
+.quiz-controls [hidden], #quizResult[hidden], #quizRetry[hidden] { display: none !important; }
