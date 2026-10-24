@@ -143,6 +143,7 @@ function applyLanguage(lang) {
             : lang === "mr"
                 ? "सोपी चित्रे आणि आकडेवारी यांच्या मदतीने हवा व पाण्याच्या प्रदूषणाबद्दल जाणून घ्या आणि आपल्या पर्यावरणाचे रक्षण कसे करता येईल ते समजून घ्या."
                 : "Learn about air and water pollution through simple data visualizations and discover how we can protect our environment.";
+    }
     const langNames = {en:["Language","English","हिंदी","मराठी"],hi:["भाषा","अंग्रेज़ी","हिंदी","मराठी"],mr:["भाषा","इंग्रजी","हिंदी","मराठी"]};
     const options = languageSelect ? Array.from(languageSelect.options) : [];
     if (options.length === 3) options.forEach((o,i) => { o.textContent = langNames[lang][i+1]; });
@@ -184,9 +185,10 @@ function applyLanguage(lang) {
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
 }
 if (languageSelect) {
-    languageSelect.addEventListener("change", () => applyLanguage(languageSelect.value));
+    languageSelect.addEventListener("change", () => { applyLanguage(languageSelect.value); renderQuiz(); });
 }
 applyLanguage(currentLanguage);
+renderQuiz();
 
 // Mobile navigation
 menuBtn.addEventListener("click", () => {
@@ -296,3 +298,84 @@ document.querySelectorAll(".learn-more-btn").forEach(button => {
 closeLearnMore.addEventListener("click", () => learnMoreDialog.close());
 learnMoreDialog.addEventListener("click", event => { if (event.target === learnMoreDialog) learnMoreDialog.close(); });
 learnMoreRelatedLink.addEventListener("click", () => learnMoreDialog.close());
+
+
+// EcoAware quiz: exactly 10 questions, localized for English, Hindi, and Marathi.
+const ecoQuizQuestions = [
+ {q:["What is a major source of air pollution in cities?","शहरों में वायु प्रदूषण का एक प्रमुख स्रोत क्या है?","शहरांमध्ये वायुप्रदूषणाचा एक प्रमुख स्रोत कोणता आहे?"],o:[["Vehicle exhaust","वाहनों का धुआँ","वाहनांचा धूर"],["Fresh flowers","ताज़े फूल","ताजी फुले"],["Rainwater","बारिश का पानी","पावसाचे पाणी"],["Sunlight","सूर्य का प्रकाश","सूर्यप्रकाश"]],a:0,e:["Vehicle exhaust releases gases and particles that pollute the air.","वाहनों से निकलने वाला धुआँ हवा को प्रदूषित करता है।","वाहनांमधून निघणारा धूर हवेचे प्रदूषण करतो."]},
+ {q:["Which action can help reduce air pollution?","कौन-सा कदम वायु प्रदूषण कम करने में मदद कर सकता है?","वायुप्रदूषण कमी करण्यासाठी कोणती कृती मदत करू शकते?"],o:[["Burning rubbish","कचरा जलाना","कचरा जाळणे"],["Using public transport","सार्वजनिक परिवहन का उपयोग","सार्वजनिक वाहतूक वापरणे"],["Keeping engines running while parked","खड़ी गाड़ी का इंजन चालू रखना","उभी गाडी सुरू ठेवणे"],["Burning leaves","पत्ते जलाना","पाने जाळणे"]],a:1,e:["Public transport can reduce the number of individual vehicles on the road.","सार्वजनिक परिवहन से सड़कों पर निजी वाहनों की संख्या कम हो सकती है।","सार्वजनिक वाहतुकीमुळे रस्त्यावरील वैयक्तिक वाहनांची संख्या कमी होऊ शकते."]},
+ {q:["What does air quality information help us understand?","वायु गुणवत्ता की जानकारी हमें क्या समझने में मदद करती है?","हवेच्या गुणवत्तेची माहिती आपल्याला काय समजण्यास मदत करते?"],o:[["How clean or polluted the air is","हवा कितनी स्वच्छ या प्रदूषित है","हवा किती स्वच्छ किंवा प्रदूषित आहे"],["How deep the ocean is","समुद्र कितना गहरा है","समुद्र किती खोल आहे"],["How old a tree is","पेड़ कितना पुराना है","झाड किती जुने आहे"],["How fast clouds move","बादल कितनी तेज़ चलते हैं","ढग किती वेगाने सरकतात"]],a:0,e:["Air quality information describes the level of pollution in the air.","वायु गुणवत्ता की जानकारी हवा में प्रदूषण का स्तर बताती है।","हवेच्या गुणवत्तेची माहिती हवेतील प्रदूषणाची पातळी सांगते."]},
+ {q:["Which of these can pollute rivers and lakes?","इनमें से कौन नदियों और झीलों को प्रदूषित कर सकता है?","यापैकी कोणत्या गोष्टींमुळे नद्या आणि तलाव प्रदूषित होऊ शकतात?"],o:[["Throwing plastic and waste into water","पानी में प्लास्टिक और कचरा डालना","पाण्यात प्लास्टिक आणि कचरा टाकणे"],["Keeping banks clean","किनारों को साफ रखना","किनारे स्वच्छ ठेवणे"],["Planting suitable trees","उपयुक्त पेड़ लगाना","योग्य झाडे लावणे"],["Using a refillable bottle","बार-बार इस्तेमाल होने वाली बोतल का उपयोग","पुन्हा वापरता येणारी बाटली वापरणे"]],a:0,e:["Plastic and waste can harm water quality and aquatic life.","प्लास्टिक और कचरा पानी की गुणवत्ता तथा जलीय जीवों को नुकसान पहुँचा सकते हैं।","प्लास्टिक आणि कचरा पाण्याची गुणवत्ता व जलचरांना हानी पोहोचवू शकतात."]},
+ {q:["Is clear-looking water always safe to drink?","क्या साफ दिखने वाला पानी हमेशा पीने के लिए सुरक्षित होता है?","स्वच्छ दिसणारे पाणी नेहमी पिण्यास सुरक्षित असते का?"],o:[["Yes, always","हाँ, हमेशा","हो, नेहमी"],["No, harmful germs or chemicals may be invisible","नहीं, हानिकारक कीटाणु या रसायन दिखाई नहीं दे सकते","नाही, हानिकारक जंतू किंवा रसायने दिसत नसू शकतात"],["Only in summer","केवल गर्मियों में","फक्त उन्हाळ्यात"],["Only if it is cold","केवल ठंडा होने पर","फक्त थंड असल्यास"]],a:1,e:["Water can look clear and still contain germs or harmful chemicals; follow trusted safety guidance.","पानी साफ दिख सकता है, फिर भी उसमें कीटाणु या हानिकारक रसायन हो सकते हैं।","पाणी स्वच्छ दिसले तरी त्यात जंतू किंवा हानिकारक रसायने असू शकतात."]},
+ {q:["What is a good way to save water at home?","घर में पानी बचाने का अच्छा तरीका कौन-सा है?","घरी पाणी वाचवण्याचा चांगला मार्ग कोणता आहे?"],o:[["Leave taps running","नल खुला छोड़ना","नळ सुरू ठेवणे"],["Fix leaking taps","टपकते नल ठीक करना","गळणारे नळ दुरुस्त करणे"],["Wash one item at a time under running water","हर चीज़ को बहते पानी में धोना","प्रत्येक वस्तू वाहत्या पाण्याखाली धुणे"],["Throw rubbish into drains","नालियों में कचरा डालना","नाल्यांत कचरा टाकणे"]],a:1,e:["Repairing leaks prevents water from being wasted.","रिसाव ठीक करने से पानी की बर्बादी रुकती है।","गळती दुरुस्त केल्याने पाण्याचा अपव्यय थांबतो."]},
+ {q:["What should you check before trusting an environmental chart?","पर्यावरण संबंधी आलेख पर भरोसा करने से पहले क्या जाँचना चाहिए?","पर्यावरणविषयक आलेखावर विश्वास ठेवण्यापूर्वी काय तपासावे?"],o:[["Only its colours","केवल उसके रंग","फक्त त्याचे रंग"],["The source, date, units, and location","स्रोत, तारीख, इकाइयाँ और स्थान","स्रोत, तारीख, एकके आणि ठिकाण"],["Whether it is popular","वह लोकप्रिय है या नहीं","तो लोकप्रिय आहे की नाही"],["Nothing at all","कुछ भी नहीं","काहीच नाही"]],a:1,e:["The source, date, units, and location help us interpret data correctly.","स्रोत, तारीख, इकाइयाँ और स्थान आँकड़ों को सही ढंग से समझने में मदद करते हैं।","स्रोत, तारीख, एकके आणि ठिकाण आकडेवारी योग्यरीत्या समजण्यास मदत करतात."]},
+ {q:["Why should waste oil and chemicals not be poured into drains?","कचरे का तेल और रसायन नालियों में क्यों नहीं डालने चाहिए?","वापरलेले तेल आणि रसायने नाल्यांत का टाकू नयेत?"],o:[["They can pollute water","वे पानी को प्रदूषित कर सकते हैं","ते पाणी प्रदूषित करू शकतात"],["They make water safer","वे पानी को अधिक सुरक्षित बनाते हैं","ते पाणी अधिक सुरक्षित करतात"],["They clean rivers","वे नदियों को साफ करते हैं","ते नद्या स्वच्छ करतात"],["They disappear harmlessly every time","वे हमेशा बिना नुकसान गायब हो जाते हैं","ते नेहमी विनाहानी नाहीसे होतात"]],a:0,e:["Oil and chemicals can travel through drains and contaminate water sources.","तेल और रसायन नालियों से होकर जलस्रोतों को दूषित कर सकते हैं।","तेल आणि रसायने नाल्यांतून जलस्रोतांपर्यंत जाऊन ते दूषित करू शकतात."]},
+ {q:["Which habit helps reduce plastic waste?","प्लास्टिक कचरा कम करने में कौन-सी आदत मदद करती है?","प्लास्टिक कचरा कमी करण्यासाठी कोणती सवय मदत करते?"],o:[["Use a reusable bottle or bag","बार-बार इस्तेमाल होने वाली बोतल या थैली का उपयोग","पुन्हा वापरता येणारी बाटली किंवा पिशवी वापरणे"],["Use a new disposable bag for every item","हर चीज़ के लिए नया एकबार इस्तेमाल वाला थैला लेना","प्रत्येक वस्तूसाठी नवीन एकदाच वापरायची पिशवी घेणे"],["Drop plastic on the roadside","सड़क किनारे प्लास्टिक फेंकना","रस्त्याच्या कडेला प्लास्टिक टाकणे"],["Burn plastic at home","घर में प्लास्टिक जलाना","घरी प्लास्टिक जाळणे"]],a:0,e:["Reusable items reduce the need for single-use plastic products.","दोबारा इस्तेमाल होने वाली चीज़ें एकबार इस्तेमाल होने वाले प्लास्टिक की ज़रूरत घटाती हैं।","पुन्हा वापरता येणाऱ्या वस्तूंमुळे एकदाच वापरल्या जाणाऱ्या प्लास्टिकची गरज कमी होते."]},
+ {q:["What is one useful way to protect the environment in your community?","अपने समुदाय में पर्यावरण की रक्षा करने का एक उपयोगी तरीका क्या है?","आपल्या समुदायात पर्यावरणाचे रक्षण करण्याचा एक उपयुक्त मार्ग कोणता आहे?"],o:[["Share reliable information and join safe clean-up activities","भरोसेमंद जानकारी साझा करना और सुरक्षित सफाई अभियानों में शामिल होना","विश्वासार्ह माहिती शेअर करणे आणि सुरक्षित स्वच्छता मोहिमेत सहभागी होणे"],["Dump rubbish into a stream","नाले में कचरा डालना","ओढ्यात कचरा टाकणे"],["Ignore leaking taps","टपकते नलों को अनदेखा करना","गळणारे नळ दुर्लक्षित करणे"],["Burn mixed waste","मिला-जुला कचरा जलाना","मिश्र कचरा जाळणे"]],a:0,e:["Responsible habits and community action help protect air, water, and local habitats.","जिम्मेदार आदतें और सामुदायिक प्रयास हवा, पानी और स्थानीय पर्यावरण की रक्षा करते हैं।","जबाबदार सवयी आणि सामुदायिक कृती हवा, पाणी व स्थानिक अधिवासांचे रक्षण करतात."]}
+];
+const quizLabels = {
+ en:{tag:"ECOAWARE QUIZ",title:"Test Your Environmental Knowledge",intro:"Answer 10 questions about air pollution, water safety, and protecting our environment.",question:"Question",of:"of",score:"Score",previous:"← Previous",next:"Next →",finish:"See Results",retry:"Try Again",choose:"Choose an answer to continue.",correct:"Correct!",incorrect:"Not quite.",result:"Your score",outOf:"out of 10",great:"Great work! Keep learning how to protect our environment.",review:"Review your answers below.",answered:"You answered",right:"correctly."},
+ hi:{tag:"ईकोअवेयर प्रश्नोत्तरी",title:"पर्यावरण के बारे में अपना ज्ञान परखें",intro:"वायु प्रदूषण, पानी की सुरक्षा और पर्यावरण संरक्षण से जुड़े 10 प्रश्नों के उत्तर दें।",question:"प्रश्न",of:"में से",score:"अंक",previous:"← पिछला",next:"अगला →",finish:"परिणाम देखें",retry:"फिर से प्रयास करें",choose:"आगे बढ़ने के लिए एक उत्तर चुनें।",correct:"सही जवाब!",incorrect:"यह सही जवाब नहीं है।",result:"आपका स्कोर",outOf:"में से 10",great:"बहुत अच्छा! पर्यावरण की रक्षा करना सीखते रहें।",review:"नीचे अपने उत्तर देखें।",answered:"आपने",right:"प्रश्नों के सही उत्तर दिए।"},
+ mr:{tag:"इकोअवेअर प्रश्नमंजुषा",title:"पर्यावरणाविषयी तुमचे ज्ञान तपासा",intro:"वायुप्रदूषण, पाण्याची सुरक्षितता आणि पर्यावरणाचे रक्षण यांवरील १० प्रश्नांची उत्तरे द्या.",question:"प्रश्न",of:"पैकी",score:"गुण",previous:"← मागील",next:"पुढील →",finish:"निकाल पाहा",retry:"पुन्हा प्रयत्न करा",choose:"पुढे जाण्यासाठी एक उत्तर निवडा.",correct:"बरोबर!",incorrect:"हे उत्तर बरोबर नाही.",result:"तुमचा गुण",outOf:"पैकी १०",great:"छान! पर्यावरणाचे रक्षण कसे करावे हे शिकत राहा.",review:"तुमची उत्तरे खाली पाहा.",answered:"तुम्ही",right:"प्रश्नांची उत्तरे बरोबर दिलीत."}
+};
+let quizCurrent = 0;
+let quizAnswers = Array(10).fill(null);
+let quizFinished = false;
+function renderQuiz() {
+ const lang=currentLanguage==="hi"?"hi":currentLanguage==="mr"?"mr":"en";
+ const labels=quizLabels[lang];
+ const tag=document.getElementById("quizTag"); if(!tag) return;
+ document.getElementById("quizTag").textContent=labels.tag;
+ document.getElementById("quiz-title").textContent=labels.title;
+ document.getElementById("quizIntro").textContent=labels.intro;
+ document.getElementById("quizPrevious").textContent=labels.previous;
+ document.getElementById("quizNext").textContent=labels.next;
+ document.getElementById("quizFinish").textContent=labels.finish;
+ document.getElementById("quizRetry").textContent=labels.retry;
+ document.getElementById("quizProgress").textContent=labels.question+" "+(lang==="mr"?["१","२","३","४","५","६","७","८","९","१०"][quizCurrent]:lang==="hi"?["१","२","३","४","५","६","७","८","९","१०"][quizCurrent]:quizCurrent+1)+" "+labels.of+" 10";
+ document.getElementById("quizScorePreview").textContent=labels.score+": "+quizAnswers.filter((a,i)=>a===ecoQuizQuestions[i].a).length;
+ document.getElementById("quizProgressBar").style.width=((quizCurrent+1)*10)+"%";
+ const q=ecoQuizQuestions[quizCurrent];
+ document.getElementById("quizQuestion").textContent=q.q[lang==="hi"?1:lang==="mr"?2:0];
+ const options=document.getElementById("quizOptions"); options.replaceChildren();
+ q.o.forEach((option,index)=>{
+   const button=document.createElement("button"); button.type="button"; button.className="quiz-option";
+   button.textContent=String.fromCharCode(65+index)+". "+option[lang==="hi"?1:lang==="mr"?2:0];
+   if(quizAnswers[quizCurrent]===index) button.classList.add("selected");
+   if(quizAnswers[quizCurrent]!==null) { button.disabled=true; if(index===q.a)button.classList.add("correct"); else if(index===quizAnswers[quizCurrent])button.classList.add("incorrect"); }
+   button.addEventListener("click",()=>{quizAnswers[quizCurrent]=index;renderQuiz();});
+   options.appendChild(button);
+ });
+ const feedback=document.getElementById("quizFeedback");
+ if(quizAnswers[quizCurrent]===null) feedback.textContent="";
+ else {const isCorrect=quizAnswers[quizCurrent]===q.a;feedback.textContent=(isCorrect?labels.correct+" ":"")+q.e[lang==="hi"?1:lang==="mr"?2:0];}
+ document.getElementById("quizPrevious").disabled=quizCurrent===0;
+ document.getElementById("quizNext").hidden=quizCurrent===9;
+ document.getElementById("quizFinish").hidden=quizCurrent!==9||quizFinished;
+ document.getElementById("quizResult").hidden=!quizFinished;
+ document.getElementById("quizRetry").hidden=!quizFinished;
+ document.getElementById("quizApp").classList.toggle("quiz-completed",quizFinished);
+ if(quizFinished) renderQuizResults(lang,labels);
+}
+function renderQuizResults(lang,labels) {
+ const result=document.getElementById("quizResult");
+ const score=quizAnswers.filter((a,i)=>a===ecoQuizQuestions[i].a).length;
+ result.replaceChildren();
+ const heading=document.createElement("h3");heading.textContent=labels.result+": "+score+" "+labels.outOf;result.appendChild(heading);
+ const summary=document.createElement("p");summary.textContent=labels.great+" "+labels.review;result.appendChild(summary);
+ const list=document.createElement("ol");
+ ecoQuizQuestions.forEach((q,i)=>{const li=document.createElement("li");const question=q.q[lang==="hi"?1:lang==="mr"?2:0];const answer=q.o[q.a][lang==="hi"?1:lang==="mr"?2:0];li.textContent=question+" — "+answer+(quizAnswers[i]===q.a?" ✓":"");list.appendChild(li);});
+ result.appendChild(list);
+}
+document.getElementById("quizPrevious").addEventListener("click",()=>{if(quizCurrent>0){quizCurrent--;renderQuiz();}});
+document.getElementById("quizNext").addEventListener("click",()=>{
+ const labels=quizLabels[currentLanguage==="hi"?"hi":currentLanguage==="mr"?"mr":"en"];
+ if(quizAnswers[quizCurrent]===null){document.getElementById("quizFeedback").textContent=labels.choose;return;}
+ if(quizCurrent<9){quizCurrent++;renderQuiz();}
+});
+document.getElementById("quizFinish").addEventListener("click",()=>{
+ const labels=quizLabels[currentLanguage==="hi"?"hi":currentLanguage==="mr"?"mr":"en"];
+ if(quizAnswers[quizCurrent]===null){document.getElementById("quizFeedback").textContent=labels.choose;return;}
+ quizFinished=true;renderQuiz();
+});
+document.getElementById("quizRetry").addEventListener("click",()=>{quizCurrent=0;quizAnswers=Array(10).fill(null);quizFinished=false;renderQuiz();});
