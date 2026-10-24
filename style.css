@@ -1,16 +1,535 @@
-< !DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Air & Water Quality Awareness</title><link rel="stylesheet" href="style.css"></head><body>< !-- Navigation --><nav class="navbar"><div class="logo">🌿 Air & Water</div><div class="nav-links"><a href="#home">Home</a><a href="#about">About</a><a href="#air">Air Quality</a><a href="#water">Water Quality</a><a href="#survey">Survey</a><a href="#solutions">Solutions</a></div></nav>< !-- HOME --><section id="home" class="hero"><div class="air-particles">• • • • •</div><div class="hero-content"><p class="small-title">COLLEGE AWARENESS PROJECT</p><h1>Air & Water <span>Quality Awareness</span></h1><p>Together for cleaner air,
-safer water and a healthier future. </p><div class="hero-buttons"><a href="#survey" class="btn">Take Survey</a><a href="#about" class="btn secondary">Learn More</a></div></div><div class="nature-illustration"><div class="sun">☀️</div><div class="cloud">☁️</div><div class="tree">🌳</div><div class="water-wave">〰〰〰〰〰</div></div></section>< !-- ABOUT --><section id="about" class="section"><div class="section-title"><p>ABOUT THE PROJECT</p><h2>Why Air & Water Quality Matters?</h2></div><div class="about-grid"><div class="about-card"><div class="icon">🌬️</div><h3>Clean Air</h3><p>Clean air is important for healthy breathing,
-good health and a better quality of life. </p></div><div class="about-card"><div class="icon">💧</div><h3>Clean Water</h3><p>Safe and clean water is necessary for drinking,
-cooking,
-farming and everyday life. </p></div><div class="about-card"><div class="icon">🌱</div><h3>Healthy Environment</h3><p>Protecting natural resources helps create a cleaner and healthier environment. </p></div></div></section>< !-- AIR QUALITY --><section id="air" class="section light-section"><div class="section-title"><p>AIR QUALITY</p><h2>Understanding Air Pollution</h2></div><div class="content-row"><div class="content-box"><h3>🌬️ What is Air Pollution?</h3><p>Air pollution occurs when harmful gases,
-smoke,
-dust and other pollutants enter the air. It can affect humans,
-animals,
-plants and the environment. </p><ul><li>🚗 Vehicle pollution</li><li>🏭 Industrial pollution</li><li>🔥 Burning of waste</li><li>🌫️ Dust and smoke</li></ul></div><div class="quality-meter"><h3>Air Quality Awareness</h3><div class="meter"><div class="meter-fill air-fill"></div></div><strong>Needs Improvement</strong><p>Small changes in our daily activities can help improve air quality. </p></div></div></section>< !-- WATER QUALITY --><section id="water" class="section"><div class="section-title"><p>WATER QUALITY</p><h2>Protect Our Water</h2></div><div class="content-row"><div class="water-animation">💧 <div class="drop">💧</div><div class="drop drop2">💧</div></div><div class="content-box"><h3>💧 Why Clean Water is Important?</h3><p>Water is one of the most important natural resources. Polluted water can cause diseases and damage aquatic life. </p><ul><li>🚫 Do not throw waste into water</li><li>♻️ Reduce plastic pollution</li><li>🚰 Save water whenever possible</li><li>🌊 Keep rivers and lakes clean</li></ul></div></div></section>< !-- PROBLEMS --><section class="section light-section"><div class="section-title"><p>ENVIRONMENTAL PROBLEMS</p><h2>Effects of Pollution</h2></div><div class="problem-grid"><div class="problem-card"><span>😷</span><h3>Health Problems</h3><p>Pollution can cause breathing problems,
-allergies and other health issues. </p></div><div class="problem-card"><span>🌡️</span><h3>Climate Change</h3><p>Air pollution contributes to environmental changes and global warming. </p></div><div class="problem-card"><span>🐟</span><h3>Water Damage</h3><p>Polluted water harms aquatic animals,
-plants and ecosystems. </p></div><div class="problem-card"><span>🌳</span><h3>Nature Loss</h3><p>Pollution can damage forests,
-soil and natural habitats. </p></div></div></section>< !-- SURVEY --><section id="survey" class="section survey-section"><div class="section-title"><p>AWARENESS SURVEY</p><h2>Share Your Awareness</h2></div><div class="survey-box"><h3>🌍 Air & Water Quality Awareness Survey</h3><p>This survey helps us understand people's awareness
- about air pollution,
-water pollution and environmental protection. </p><div class="survey-stats"><div><strong>50%</strong><span>Air Awareness</span></div><div><strong>50%</strong><span>Water Awareness</span></div></div><a href="#" class="btn survey-btn">Open Survey </a><p class="note">Your responses can help create a cleaner environment. </p></div></section>< !-- SOLUTIONS --><section id="solutions" class="section"><div class="section-title"><p>TAKE ACTION</p><h2>Simple Solutions</h2></div><div class="solution-grid"><div class="solution-card"><span>🌱</span><h3>Plant More Trees</h3><p>Trees help improve air quality and provide a healthier environment. </p></div><div class="solution-card"><span>♻️</span><h3>Reduce Waste</h3><p>Follow reduce,
-reuse and recycle to control pollution. </p></div><div class="solution-card"><span>🚲</span><h3>Use Cleaner Transport</h3><p>Walking,
-cycling and public transport can reduce air pollution. </p></div><div class="solution-card"><span>💧</span><h3>Save Water</h3><p>Avoid wasting water and keep water sources clean. </p></div></div></section>< !-- STUDENT PROJECT --><section class="student-section"><div class="student-card"><p>COLLEGE PROJECT</p><h2>Air & Water Quality Awareness</h2><div class="student-details"><div><span>Student Name</span><strong>YOUR NAME</strong></div><div><span>Class</span><strong>YOUR CLASS</strong></div><div><span>College</span><strong>YOUR COLLEGE</strong></div></div></div></section>< !-- FOOTER --><footer><h3>🌿 Air & Water Quality Awareness</h3><p>Together for a cleaner and healthier future. </p><p class="copyright">© 2026 College Awareness Project </p></footer><script src="script.js"></script></body></html>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+    --green: #176b4d;
+    --dark: #16352a;
+    --light: #eff7ef;
+    --blue: #2382a4;
+    --text: #253b32;
+    --muted: #66766e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-header,
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, .96);
+    border-bottom: 1px solid #e3ece4;
+}
+
+.navbar {
+    max-width: 1150px;
+    min-height: 78px;
+    margin: auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.logo {
+    font-family: Manrope, sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--green);
+    white-space: nowrap;
+}
+
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.nav-links a:hover,
+footer a:hover {
+    color: #73a85b;
+}
+
+#menuBtn {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: var(--green);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.read-btn {
+    background: white;
+    color: var(--green);
+    border: 1px solid #d8e6d9;
+    padding: 9px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.hero {
+    min-height: 530px;
+    padding: 70px max(24px, calc((100% - 1100px)/2));
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 30px;
+    align-items: center;
+    background: radial-gradient(circle at 80% 40%, #d7f0d8, transparent 35%), #f3f9f1;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.tag {
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.hero h1 {
+    font-family: Manrope, sans-serif;
+    font-size: clamp(43px, 6vw, 68px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero p,
+.section-heading p {
+    color: var(--muted);
+    margin: 18px 0 25px;
+}
+
+.hero-image {
+    display: grid;
+    place-items: center;
+    font-size: clamp(130px, 20vw, 230px);
+    animation: float 5s ease-in-out infinite;
+    filter: drop-shadow(0 18px 25px #8cbe9060);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    padding: 13px 20px;
+    border: 0;
+    border-radius: 11px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    background: #104d39;
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 85px 24px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.shaded {
+    max-width: none;
+    background: #f5f9f4;
+}
+
+.shaded>* {
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading {
+    max-width: 720px;
+    text-align: center;
+    margin: 0 auto 38px;
+}
+
+.section-heading h2 {
+    font-family: Manrope, sans-serif;
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.25;
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    font-size: 14px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 27px;
+    border: 1px solid #e0eae1;
+    border-radius: 19px;
+    background: white;
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px #1d523015;
+}
+
+.icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    background: #eaf6e8;
+    border-radius: 15px;
+    font-size: 26px;
+    margin-bottom: 17px;
+}
+
+.card h3,
+.data-card h3,
+.info-box h3,
+.solution h3 {
+    font-family: Manrope, sans-serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.card p,
+.solution p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.data-card,
+.info-box {
+    max-width: 760px;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #e0eae1;
+    border-radius: 20px;
+    padding: 28px;
+}
+
+.data-card h3 {
+    margin-bottom: 5px;
+}
+
+.note {
+    color: #7b8981;
+    font-size: 11px;
+    margin-bottom: 26px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 115px 1fr 28px;
+    gap: 12px;
+    align-items: center;
+    margin: 19px 0;
+    font-size: 12px;
+}
+
+.bar {
+    height: 12px;
+    background: #edf3ed;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #70c888, #176b4d);
+    border-radius: inherit;
+    animation: grow 1.2s ease-out;
+}
+
+.bar-row b {
+    color: var(--green);
+}
+
+.info-box ul {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.water-card .icon {
+    background: #e5f4fa;
+}
+
+.solution-list {
+    max-width: 780px;
+    margin: auto;
+}
+
+.solution {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #dfe8df;
+}
+
+.solution>span {
+    font-size: 28px;
+}
+
+.solution h3 {
+    margin-bottom: 4px;
+}
+
+.pledge-section {
+    background: linear-gradient(120deg, #eaf6e8, #f8fbf6);
+}
+
+.pledge-form {
+    max-width: 550px;
+    margin: auto;
+    padding: 28px;
+    background: white;
+    border: 1px solid #e0eae1;
+    border-radius: 20px;
+    display: grid;
+    gap: 12px;
+}
+
+.pledge-form label {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--green);
+}
+
+.pledge-form input,
+.pledge-form select {
+    width: 100%;
+    border: 1px solid #dbe6dc;
+    border-radius: 10px;
+    padding: 12px;
+    background: #fbfdfb;
+    color: var(--text);
+}
+
+.pledge-form input:focus,
+.pledge-form select:focus {
+    outline: 2px solid #b8e4bc;
+}
+
+#pledgeMessage {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pledge-form small {
+    color: #849188;
+    font-size: 10px;
+}
+
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: #123329;
+    color: white;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #c1d5c7;
+    font-size: 12px;
+    margin: 5px;
+}
+
+footer a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #b7e6a5;
+    font-size: 12px;
+}
+
+.speaker {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    z-index: 20;
+    display: flex;
+    gap: 7px;
+    background: white;
+    border: 1px solid #dce8dd;
+    padding: 7px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px #173b281f;
+}
+
+.speaker button {
+    border: 0;
+    background: #eaf6e8;
+    color: var(--green);
+    border-radius: 10px;
+    width: 39px;
+    height: 39px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.speaker button:hover {
+    background: #d7eed5;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes grow {
+    from {
+        width: 0;
+    }
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .read-btn {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        min-height: 70px;
+        flex-wrap: wrap;
+    }
+
+    #menuBtn {
+        display: block;
+        margin-left: auto;
+    }
+
+    .read-btn {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+        order: 5;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 10px;
+        border-top: 1px solid #edf2ed;
+        font-size: 13px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 55px 22px 35px;
+    }
+
+    .hero-image {
+        font-size: 145px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 65px 20px;
+    }
+
+    .data-card,
+    .info-box {
+        padding: 20px;
+    }
+
+    .bar-row {
+        grid-template-columns: 90px 1fr 25px;
+        gap: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
