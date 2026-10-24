@@ -2,6 +2,7 @@ const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 const languageSelect = document.getElementById("languageSelect");
 let currentLanguage = localStorage.getItem("ecoaware-language") || "en";
+let activeGuideTopic = null;
 const originalText = new WeakMap();
 const originalAttributes = new WeakMap();
 
@@ -158,6 +159,19 @@ function applyLanguage(lang) {
     const formLocale = lang === "hi" ? "hi" : lang === "mr" ? "mr" : "en";
     if (formFrame) formFrame.src = formBase + "?embedded=true&hl=" + formLocale;
     if (formOpenLink) formOpenLink.href = formBase + "?hl=" + formLocale;
+    if (activeGuideTopic && typeof getGuide === "function") {
+        const activeGuide = getGuide(activeGuideTopic, lang);
+        if (activeGuide) {
+            const titleEl = document.getElementById("learnMoreTitle");
+            const descriptionEl = document.getElementById("learnMoreDescription");
+            const relatedEl = document.getElementById("learnMoreRelatedLink");
+            if (titleEl && descriptionEl && relatedEl) {
+                titleEl.textContent = activeGuide.title;
+                descriptionEl.textContent = activeGuide.detail;
+                relatedEl.textContent = activeGuide.linkText + " →";
+            }
+        }
+    }
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
 }
 if (languageSelect) {
@@ -260,6 +274,7 @@ document.querySelectorAll(".learn-more-btn").forEach(button => {
     button.addEventListener("click", () => {
         const guide = getGuide(button.dataset.topic, currentLanguage);
         if (!guide) return;
+        activeGuideTopic = button.dataset.topic;
         learnMoreTitle.textContent = guide.title;
         learnMoreDescription.textContent = guide.detail;
         learnMoreRelatedLink.href = guideEnglish[button.dataset.topic][2].includes("water") ? "#water" : button.dataset.topic === "eco-pledge" ? "#pledge" : button.dataset.topic.includes("tree") || button.dataset.topic.includes("cleanup") ? "#solutions" : button.dataset.topic.includes("statistics") || button.dataset.topic.includes("awareness") ? "#about" : "#air";
