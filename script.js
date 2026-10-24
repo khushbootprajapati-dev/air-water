@@ -297,4 +297,199 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+
+  /* Short, private-by-default quiz for active learning. Scores stay in this page. */
+  const quizForm = document.getElementById("quiz-form");
+  if (quizForm) {
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizQuestionLabel = document.getElementById("quiz-question");
+    const quizOptions = document.getElementById("quiz-options");
+    const quizCheckButton = document.getElementById("quiz-check");
+    const quizNextButton = document.getElementById("quiz-next");
+    const quizRestartButton = document.getElementById("quiz-restart");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const quizScoreLabel = document.getElementById("quiz-score");
+
+    const quizQuestions = [
+      {
+        question: "Which choice can help reduce pollution from short vehicle trips?",
+        options: [
+          "Leave a vehicle engine running while waiting",
+          "Walk or cycle when the route is safe and practical",
+          "Burn household waste outdoors",
+          "Use a vehicle for every short trip"
+        ],
+        answer: 1,
+        explanation: "Walking or cycling for suitable trips avoids exhaust emissions from that journey. Public transport and carpooling can also help."
+      },
+      {
+        question: "Why should plastic waste be kept out of drains, rivers, and lakes?",
+        options: [
+          "It makes water safer to drink",
+          "It disappears immediately in water",
+          "It can pollute water and harm wildlife",
+          "It improves the flow of clean water"
+        ],
+        answer: 2,
+        explanation: "Plastic litter can persist in the environment, block drains, and injure or be swallowed by animals."
+      },
+      {
+        question: "What is a safer approach to household chemicals or used batteries?",
+        options: [
+          "Pour them into a river",
+          "Burn them with mixed waste",
+          "Put them into any water drain",
+          "Follow product guidance and local collection or disposal rules"
+        ],
+        answer: 3,
+        explanation: "Some chemicals and batteries can pollute soil and water. Follow the product label and your local authority's disposal guidance."
+      },
+      {
+        question: "Which everyday action helps conserve water?",
+        options: [
+          "Repair leaking taps when possible",
+          "Keep taps running while brushing",
+          "Wash pavements with a hose unnecessarily",
+          "Ignore leaks because they are small"
+        ],
+        answer: 0,
+        explanation: "Repairing leaks and turning taps off when water is not needed reduces avoidable water waste."
+      },
+      {
+        question: "How should you interpret the 50% / 50% survey summary on this project page?",
+        options: [
+          "It is a live reading from an air-quality sensor",
+          "It is automatically updated from Google Forms",
+          "It is a manually entered project summary that should be checked against actual responses",
+          "It measures today's drinking-water safety"
+        ],
+        answer: 2,
+        explanation: "The displayed figures are static project content, not live measurements or a live Google Forms connection. Compare them with collected responses before presenting them as final."
+      }
+    ];
+
+    let quizIndex = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+
+    function updateQuizScore() {
+      if (quizScoreLabel) {
+        quizScoreLabel.textContent = "Score: " + quizScore + " / " + quizQuestions.length;
+      }
+    }
+
+    function renderQuizQuestion() {
+      const item = quizQuestions[quizIndex];
+      if (!item || !quizQuestionLabel || !quizOptions) return;
+
+      quizProgress.textContent = "Question " + (quizIndex + 1) + " of " + quizQuestions.length;
+      quizQuestionLabel.textContent = item.question;
+      quizOptions.replaceChildren();
+
+      item.options.forEach(function (optionText, optionIndex) {
+        const label = document.createElement("label");
+        label.className = "quiz-option";
+
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "quiz-answer";
+        input.value = String(optionIndex);
+        input.required = true;
+
+        const optionLabel = document.createElement("span");
+        optionLabel.textContent = optionText;
+
+        label.appendChild(input);
+        label.appendChild(optionLabel);
+        quizOptions.appendChild(label);
+      });
+
+      quizAnswered = false;
+      quizCheckButton.disabled = false;
+      quizNextButton.disabled = true;
+      quizNextButton.textContent = quizIndex === quizQuestions.length - 1 ? "See results" : "Next question";
+      quizFeedback.textContent = "Choose one answer, then select Check answer.";
+      quizFeedback.classList.remove("is-correct", "is-incorrect");
+      updateQuizScore();
+    }
+
+    quizOptions.addEventListener("change", function (event) {
+      const changedInput = event.target;
+      if (!changedInput || changedInput.name !== "quiz-answer" || quizAnswered) return;
+      quizOptions.querySelectorAll(".quiz-option").forEach(function (label) {
+        label.classList.remove("is-selected");
+      });
+      changedInput.closest(".quiz-option").classList.add("is-selected");
+    });
+
+    quizForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (quizAnswered) return;
+
+      const selected = quizForm.querySelector('input[name="quiz-answer"]:checked');
+      if (!selected) {
+        quizFeedback.textContent = "Please choose one answer before continuing.";
+        quizFeedback.classList.remove("is-correct", "is-incorrect");
+        const firstOption = quizOptions.querySelector('input[name="quiz-answer"]');
+        if (firstOption) firstOption.focus();
+        return;
+      }
+
+      const item = quizQuestions[quizIndex];
+      const selectedIndex = Number(selected.value);
+      const isCorrect = selectedIndex === item.answer;
+      quizAnswered = true;
+
+      if (isCorrect) quizScore += 1;
+
+      quizOptions.querySelectorAll("input[name='quiz-answer']").forEach(function (input) {
+        input.disabled = true;
+        const label = input.closest(".quiz-option");
+        if (label) {
+          label.classList.remove("is-selected");
+          if (Number(input.value) === item.answer) label.classList.add("is-answer-correct");
+          if (Number(input.value) === selectedIndex && !isCorrect) label.classList.add("is-answer-incorrect");
+        }
+      });
+
+      quizFeedback.textContent = (isCorrect ? "Correct! " : "Not quite. The correct answer is: " + item.options[item.answer] + ". ") + item.explanation;
+      quizFeedback.classList.toggle("is-correct", isCorrect);
+      quizFeedback.classList.toggle("is-incorrect", !isCorrect);
+      quizCheckButton.disabled = true;
+      quizNextButton.disabled = false;
+      quizNextButton.focus();
+      updateQuizScore();
+    });
+
+    quizNextButton.addEventListener("click", function () {
+      if (!quizAnswered) return;
+
+      if (quizIndex < quizQuestions.length - 1) {
+        quizIndex += 1;
+        renderQuizQuestion();
+        quizQuestionLabel.focus();
+        return;
+      }
+
+      quizProgress.textContent = "Quiz completed";
+      quizQuestionLabel.textContent = "Your result";
+      quizOptions.replaceChildren();
+      quizCheckButton.disabled = true;
+      quizNextButton.disabled = true;
+      quizFeedback.classList.remove("is-correct", "is-incorrect");
+      quizFeedback.textContent = "You scored " + quizScore + " out of " + quizQuestions.length + " (" + Math.round((quizScore / quizQuestions.length) * 100) + "%). " +
+        (quizScore === quizQuestions.length ? "Excellent work!" : "Review the explanations and try again to learn more.");
+      quizQuestionLabel.focus();
+    });
+
+    quizRestartButton.addEventListener("click", function () {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuizQuestion();
+      quizQuestionLabel.focus();
+    });
+
+    renderQuizQuestion();
+  }
+
 });
