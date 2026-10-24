@@ -134,6 +134,15 @@ function applyLanguage(lang) {
     });
     translateAttributes(lang);
     document.title = lang === "en" ? "EcoAware | Air & Water Quality Awareness" : lang === "hi" ? "ईकोअवेयर | वायु और जल गुणवत्ता जागरूकता" : "इकोअवेअर | हवा आणि पाण्याच्या गुणवत्तेविषयी जागरूकता";
+    // Keep the full hero subtitle in the selected language. The original HTML line breaks
+    // split this sentence into separate text nodes, so the generic translator misses it.
+    const heroDescription = document.getElementById("heroDescription");
+    if (heroDescription) {
+        heroDescription.textContent = lang === "hi"
+            ? "हवा और पानी के प्रदूषण के बारे में सरल चित्रों और आँकड़ों की मदद से जानें और समझें कि हम अपने पर्यावरण की रक्षा कैसे कर सकते हैं।"
+            : lang === "mr"
+                ? "सोपी चित्रे आणि आकडेवारी यांच्या मदतीने हवा व पाण्याच्या प्रदूषणाबद्दल जाणून घ्या आणि आपल्या पर्यावरणाचे रक्षण कसे करता येईल ते समजून घ्या."
+                : "Learn about air and water pollution through simple data visualizations and discover how we can protect our environment.";
     const langNames = {en:["Language","English","हिंदी","मराठी"],hi:["भाषा","अंग्रेज़ी","हिंदी","मराठी"],mr:["भाषा","इंग्रजी","हिंदी","मराठी"]};
     const options = languageSelect ? Array.from(languageSelect.options) : [];
     if (options.length === 3) options.forEach((o,i) => { o.textContent = langNames[lang][i+1]; });
