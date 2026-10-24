@@ -1043,3 +1043,46 @@ select:focus-visible {
 @media (prefers-reduced-motion:reduce) {
  .cartoon-stage *, .cartoon-stage::before, .cartoon-stage::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
 }
+
+
+/* Step-by-step illustrated pollution stories */
+.story-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:30px}
+.story-card{min-width:0;background:#fff;border:1px solid #dce9dd;border-radius:24px;padding:22px;box-shadow:0 12px 34px rgba(22,53,42,.07)}
+.story-title{display:flex;align-items:center;gap:10px;margin-bottom:16px}.story-title>span{font-size:30px}.story-title h3{font-size:clamp(19px,2.4vw,25px);margin:0}
+.story-scene{height:255px;position:relative;overflow:hidden;border-radius:18px;isolation:isolate;background:#bfe9f5}
+.story-sky{position:absolute;inset:0 0 38% 0;background:linear-gradient(#b9e8f8,#e9f8ff)}
+.story-sun{position:absolute;right:7%;top:8%;font-size:34px}.story-cloud{position:absolute;left:20%;top:12%;font-size:35px}
+.story-factory{position:absolute;left:5%;bottom:38%;font-size:48px;z-index:2}
+.story-river{position:absolute;left:-5%;right:-5%;bottom:0;height:48%;background:linear-gradient(#45b8db,#1684b5);border-radius:45% 35% 0 0}
+.story-bank{position:absolute;left:0;right:0;bottom:0;height:17%;background:#72b969;z-index:1}
+.story-person{position:absolute;right:22%;bottom:12%;font-size:45px;z-index:3;transition:all .6s}
+.story-trash{position:absolute;left:42%;bottom:28%;font-size:25px;z-index:4;transition:all .7s}
+.second-trash{left:62%;bottom:21%}.story-bin{position:absolute;right:7%;bottom:12%;font-size:37px;opacity:0;transition:opacity .4s;z-index:4}
+.story-fish{position:absolute;left:45%;bottom:7%;font-size:30px;opacity:.35;transition:all .7s;z-index:3}
+.story-plants{position:absolute;left:4%;bottom:13%;font-size:28px;z-index:3}
+.story-badge{position:absolute;left:12px;top:12px;background:#176b4d;color:#fff;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:800;z-index:6}
+.story-smoke{position:absolute;left:17%;top:20%;font-size:31px;z-index:3;transition:all .7s}
+.story-road{position:absolute;left:0;right:0;bottom:0;height:22%;background:#7b8589}
+.story-car{position:absolute;left:34%;bottom:13%;font-size:43px;z-index:3;transition:all .7s}
+.story-bicycle{position:absolute;left:39%;bottom:12%;font-size:42px;opacity:0;z-index:4;transition:all .7s}
+.story-tree{position:absolute;right:8%;bottom:13%;font-size:55px;opacity:.25;transform:scale(.7);transform-origin:bottom;transition:all .7s;z-index:3}
+.story-birds{position:absolute;right:25%;top:30%;font-size:28px;opacity:0;transition:all .7s}
+.story-scene.state-2 .story-trash{transform:translate(30px,18px) scale(.7);opacity:.2}
+.story-scene.state-2 .story-bin{opacity:1}.story-scene.state-2 .story-person{transform:translateX(15px)}
+.story-scene.state-2 .story-smoke{transform:translateY(-12px);opacity:.45}
+.story-scene.state-2 .story-car{transform:translateX(35px);opacity:.45}
+.story-scene.state-2 .story-bicycle{opacity:1;transform:translateX(8px)}
+.story-scene.state-2 .story-tree{opacity:.7;transform:scale(.9)}
+.story-scene.state-3 .story-trash{opacity:0;transform:translateY(35px) scale(.5)}
+.story-scene.state-3 .story-bin{opacity:1}.story-scene.state-3 .story-fish{opacity:1;transform:translateX(14px)}
+.story-scene.state-3 .story-river{background:linear-gradient(#70d7ed,#1aa4d0)}
+.story-scene.state-3 .story-plants{filter:saturate(1.4);transform:scale(1.1)}
+.story-scene.state-3 .story-smoke{opacity:0;transform:translateY(-35px)}
+.story-scene.state-3 .story-car{opacity:.15;transform:translateX(70px)}
+.story-scene.state-3 .story-bicycle{opacity:1;transform:translateX(20px)}
+.story-scene.state-3 .story-tree{opacity:1;transform:scale(1.08)}
+.story-scene.state-3 .story-birds{opacity:1;transform:translateY(-8px)}
+.story-progress{padding:16px 2px 4px;min-height:105px}.story-step-title{color:var(--green);font-size:18px}.story-step-copy{color:var(--muted);line-height:1.65;margin:8px 0 0}
+.story-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}.story-controls .btn{padding:11px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:700;background:var(--green);color:#fff}.story-controls .btn:disabled{opacity:.35;cursor:not-allowed}.story-count{font-weight:800;color:var(--muted);white-space:nowrap}
+@media(max-width:760px){.story-grid{grid-template-columns:1fr}.story-card{padding:15px}.story-scene{height:230px}.story-controls .btn{padding:10px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.story-scene *{transition:none!important}}
