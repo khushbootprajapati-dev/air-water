@@ -7,6 +7,19 @@ const originalText = new WeakMap();
 const originalAttributes = new WeakMap();
 
 const translations = {
+"LEARN WITH A STORY":["कहानी से सीखें","कथेतून शिका"],
+"See the Problem. Be the Solution!":["समस्या देखें, समाधान बनें!","समस्या ओळखा, उपायाचा भाग बना!"],
+"Follow each little story: see what causes pollution, what we can do, and how nature improves.":["इन छोटी कहानियों में देखें कि प्रदूषण कैसे होता है, हम क्या कर सकते हैं और प्रकृति कैसे बेहतर बनती है।","या छोट्या गोष्टींमधून प्रदूषण कसे होते, आपण काय करू शकतो आणि निसर्ग कसा सुधारतो ते पाहा."],
+"Story 1: Save the River":["कहानी 1: नदी बचाएँ","गोष्ट १: नदी वाचवा"],
+"Story 2: Help the Air":["कहानी 2: हवा को साफ रखें","गोष्ट २: हवा स्वच्छ ठेवा"],
+"STEP 1":["चरण 1","टप्पा १"],
+"Step 1: A river gets dirty":["चरण 1: नदी गंदी हो जाती है","टप्पा १: नदी घाण होते"],
+"People throw rubbish into the river. Plastic makes the water unsafe for fish and people.":["लोग नदी में कचरा फेंकते हैं। प्लास्टिक से पानी मछलियों और लोगों के लिए असुरक्षित हो जाता है।","लोक नदीत कचरा टाकतात. प्लास्टिकमुळे पाणी मासे आणि माणसांसाठी असुरक्षित होते."],
+"Step 1: Smoke pollutes the air":["चरण 1: धुआँ हवा को प्रदूषित करता है","टप्पा १: धूर हवा प्रदूषित करतो"],
+"Smoke from vehicles and factories makes the air dirty and harder to breathe.":["वाहनों और कारखानों का धुआँ हवा को गंदा करता है और साँस लेना मुश्किल बना सकता है।","वाहने आणि कारखान्यांचा धूर हवा घाण करतो आणि श्वास घेणे कठीण करू शकतो."],
+"← Previous":["← पिछला","← मागील"],
+"Next step →":["अगला चरण →","पुढील टप्पा →"],
+"Tap “Next step” to move the story forward. The pictures and explanation change together.":["कहानी आगे बढ़ाने के लिए “अगला चरण” दबाएँ। चित्र और समझाने वाला पाठ साथ में बदलेंगे।","गोष्ट पुढे नेण्यासाठी “पुढील टप्पा” दाबा. चित्रे आणि स्पष्टीकरण एकत्र बदलतील."],
 "WATCH & UNDERSTAND":["देखें और समझें","पाहा आणि समजून घ्या"],
 "From Pollution to Protection":["प्रदूषण से संरक्षण तक","प्रदूषणापासून संरक्षणाकडे"],
 "Watch how small actions can make our water cleaner and our air healthier.":["देखें कि छोटे-छोटे कदम पानी को साफ और हवा को स्वस्थ कैसे बना सकते हैं।","लहान कृतींमुळे पाणी स्वच्छ आणि हवा निरोगी कशी होऊ शकते ते पाहा."],
