@@ -1,456 +1,334 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Air & Water Quality Awareness</title>
-
-    <!-- Connecting CSS file -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about air and water pollution, understand environmental impacts, and explore practical actions for a healthier planet.">
+  <meta name="theme-color" content="#123a32">
+  <title>EcoAware | Air &amp; Water Quality Awareness</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- ================= NAVIGATION BAR ================= -->
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#home" aria-label="EcoAware home">
+        <span class="brand-mark" aria-hidden="true">✿</span>
+        <span>Eco<span class="brand-accent">Aware</span></span>
+      </a>
 
-    <header>
-        <nav class="navbar">
+      <button class="nav-toggle" id="nav-toggle" type="button"
+        aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
 
-            <div class="logo">
-                Eco<span>Aware</span>
-            </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="site-nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#air">Air Quality</a></li>
+          <li><a href="#water">Water Quality</a></li>
+          <li><a href="#survey">Survey</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#air">Air Quality</a></li>
-                <li><a href="#water">Water Quality</a></li>
-                <li><a href="#survey">Survey</a></li>
-                <li><a href="#solutions">Solutions</a></li>
-            </ul>
-
-        </nav>
-    </header>
-
-
-    <!-- ================= HOME SECTION ================= -->
-
-    <section id="home" class="hero">
-
-        <div class="hero-content">
-
-            <p class="small-title">
-                CLEAN AIR • CLEAN WATER • HEALTHY LIFE
-            </p>
-
-            <h1>
-                Air & Water
-                <span>Quality Awareness</span>
-            </h1>
-
-            <p class="hero-description">
-                Learn about environmental pollution, understand
-                its impact and take action for a cleaner,
-                healthier and sustainable future.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#survey" class="btn primary-btn">
-                    View Survey Results
-                </a>
-
-                <a href="#solutions" class="btn secondary-btn">
-                    Explore Solutions
-                </a>
-
-            </div>
-
+  <main id="main-content">
+    <section class="hero-section" id="home" aria-labelledby="hero-title">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Clean air. Safe water. Shared future.</p>
+          <h1 id="hero-title">Small actions.<br><span>Big change</span> for our planet.</h1>
+          <p class="hero-description">
+            Understand air and water pollution, learn how it affects our lives,
+            and discover practical ways to protect the environment around us.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#air">Explore the topics <span aria-hidden="true">→</span></a>
+            <a class="button button-ghost" href="#survey">View survey summary</a>
+          </div>
+          <div class="hero-points" aria-label="Website topics">
+            <span><span aria-hidden="true">✓</span> Learn the causes</span>
+            <span><span aria-hidden="true">✓</span> Understand the impact</span>
+            <span><span aria-hidden="true">✓</span> Take practical action</span>
+          </div>
         </div>
 
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-sun"></div>
+          <div class="art-cloud art-cloud-one"></div>
+          <div class="art-cloud art-cloud-two"></div>
+          <div class="art-hill hill-back"></div>
+          <div class="art-hill hill-front"></div>
+          <div class="art-tree tree-one"><span></span></div>
+          <div class="art-tree tree-two"><span></span></div>
+          <div class="art-water"></div>
+          <div class="art-leaf leaf-one">✦</div>
+          <div class="art-leaf leaf-two">✦</div>
+          <div class="art-label label-air"><span>〰</span> Cleaner air</div>
+          <div class="art-label label-water"><span>滴</span> Safer water</div>
+        </div>
+      </div>
+      <div class="hero-bottom-line" aria-hidden="true"></div>
     </section>
 
-
-    <!-- ================= ABOUT SECTION ================= -->
-
-    <section id="about" class="section">
-
-        <div class="section-heading">
-
-            <p>ABOUT OUR PROJECT</p>
-
-            <h2>
-                Why Air & Water Quality Matters?
-            </h2>
-
+    <section class="speaker-section" aria-labelledby="speaker-title">
+      <div class="container">
+        <div class="speaker-panel">
+          <div class="speaker-intro">
+            <span class="speaker-icon" aria-hidden="true">🔊</span>
+            <div>
+              <h2 id="speaker-title">Listen to this page</h2>
+              <p>Use your browser's available speech voice to read the website aloud.</p>
+            </div>
+          </div>
+          <div class="speaker-actions">
+            <label class="voice-picker" for="voice-select">
+              <span>Voice</span>
+              <select id="voice-select" aria-label="Choose speech voice">
+                <option value="">Default browser voice</option>
+              </select>
+            </label>
+            <div class="speaker-buttons" role="group" aria-label="Text to speech controls">
+              <button class="button button-small button-primary" id="speaker-play" type="button">▶ Play</button>
+              <button class="button button-small button-soft" id="speaker-pause" type="button" disabled>Ⅱ Pause</button>
+              <button class="button button-small button-soft" id="speaker-resume" type="button" disabled>▶ Resume</button>
+              <button class="button button-small button-stop" id="speaker-stop" type="button" disabled>■ Stop</button>
+            </div>
+          </div>
+          <p class="speaker-status" id="speaker-status" role="status" aria-live="polite">
+            Ready. Speech availability depends on your browser and installed voices.
+          </p>
         </div>
-
-        <div class="about-content">
-
-            <p>
-                Clean air and safe water are essential for
-                human health, environmental balance and
-                sustainable development.
-            </p>
-
-            <p>
-                This project focuses on creating awareness
-                about air and water pollution and understanding
-                people's awareness through a survey.
-            </p>
-
-        </div>
-
+      </div>
     </section>
 
-
-    <!-- ================= AIR QUALITY ================= -->
-
-    <section id="air" class="section air-section">
-
+    <section class="content-section about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
         <div class="section-heading">
-
-            <p>AIR QUALITY</p>
-
-            <h2>
-                Understanding Air Pollution
-            </h2>
-
+          <p class="eyebrow">About the project</p>
+          <h2 id="about-title">A healthier environment starts with awareness.</h2>
+          <p>Clean air and safe water support human health, protect wildlife, and help communities thrive. This college awareness project explains common pollution sources and encourages everyday action.</p>
         </div>
 
-        <div class="card-container">
-
-            <div class="info-card">
-
-                <div class="card-icon">🌫️</div>
-
-                <h3>Vehicle Pollution</h3>
-
-                <p>
-                    Vehicle emissions release harmful gases
-                    and particles into the atmosphere.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="card-icon">🏭</div>
-
-                <h3>Industrial Smoke</h3>
-
-                <p>
-                    Industrial activities may release smoke
-                    and harmful pollutants into the air.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="card-icon">🔥</div>
-
-                <h3>Burning Waste</h3>
-
-                <p>
-                    Burning plastic and other waste can
-                    release dangerous pollutants.
-                </p>
-
-            </div>
-
+        <div class="three-card-grid">
+          <article class="feature-card">
+            <div class="card-symbol symbol-mint" aria-hidden="true">↗</div>
+            <p class="card-kicker">01 / Breathe</p>
+            <h3>Clean air</h3>
+            <p>Healthy air matters for breathing, wellbeing, plants, animals, and the quality of life in our communities.</p>
+          </article>
+          <article class="feature-card">
+            <div class="card-symbol symbol-blue" aria-hidden="true">⌁</div>
+            <p class="card-kicker">02 / Protect</p>
+            <h3>Clean water</h3>
+            <p>Safe water is essential for drinking, cooking, farming, sanitation, and the survival of aquatic life.</p>
+          </article>
+          <article class="feature-card">
+            <div class="card-symbol symbol-peach" aria-hidden="true">✳</div>
+            <p class="card-kicker">03 / Sustain</p>
+            <h3>A shared responsibility</h3>
+            <p>Learning about pollution helps people make informed choices and support a cleaner, more sustainable future.</p>
+          </article>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- ================= WATER QUALITY ================= -->
-
-    <section id="water" class="section water-section">
-
-        <div class="section-heading">
-
-            <p>WATER QUALITY</p>
-
-            <h2>
-                Protecting Our Water Resources
-            </h2>
-
+    <section class="content-section section-tinted" id="air" aria-labelledby="air-title">
+      <div class="container">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Air quality</p>
+            <h2 id="air-title">What makes the air polluted?</h2>
+          </div>
+          <p>Air pollution happens when harmful gases, smoke, dust, or tiny particles enter the air. It can affect people, animals, plants, and the wider environment.</p>
         </div>
 
-        <div class="card-container">
-
-            <div class="info-card">
-
-                <div class="card-icon">🧴</div>
-
-                <h3>Plastic Waste</h3>
-
-                <p>
-                    Plastic waste can enter rivers, lakes
-                    and other water sources.
-                </p>
-
+        <div class="topic-grid">
+          <article class="topic-card">
+            <div class="topic-illustration illustration-road" aria-hidden="true"><span>🚗</span></div>
+            <div class="topic-card-body">
+              <p class="card-kicker">Common source</p>
+              <h3>Vehicle emissions</h3>
+              <p>Cars, buses, and other vehicles can release gases and particles. Walking, cycling, carpooling, and public transport can help reduce emissions.</p>
             </div>
-
-
-            <div class="info-card">
-
-                <div class="card-icon">🚰</div>
-
-                <h3>Untreated Sewage</h3>
-
-                <p>
-                    Untreated sewage can contaminate water
-                    and harm human and aquatic life.
-                </p>
-
+          </article>
+          <article class="topic-card">
+            <div class="topic-illustration illustration-industry" aria-hidden="true"><span>🏭</span></div>
+            <div class="topic-card-body">
+              <p class="card-kicker">Common source</p>
+              <h3>Industrial smoke</h3>
+              <p>Some industrial processes release pollutants. Suitable pollution controls, cleaner energy, and monitoring can help limit emissions.</p>
             </div>
-
-
-            <div class="info-card">
-
-                <div class="card-icon">☣️</div>
-
-                <h3>Chemical Pollution</h3>
-
-                <p>
-                    Harmful chemicals can contaminate
-                    water resources and affect ecosystems.
-                </p>
-
+          </article>
+          <article class="topic-card">
+            <div class="topic-illustration illustration-fire" aria-hidden="true"><span>♨</span></div>
+            <div class="topic-card-body">
+              <p class="card-kicker">Common source</p>
+              <h3>Burning waste</h3>
+              <p>Burning plastic and mixed waste can release harmful pollutants. Sorting waste and using safe collection or recycling services are better choices.</p>
             </div>
-
+          </article>
         </div>
 
+        <div class="info-callout">
+          <span class="callout-icon" aria-hidden="true">i</span>
+          <p><strong>Remember:</strong> This website provides educational information. It does not measure or report live Air Quality Index (AQI) readings.</p>
+        </div>
+      </div>
     </section>
 
-
-    <!-- ================= SURVEY RESULTS ================= -->
-
-    <section id="survey" class="section survey-section">
-
-        <div class="section-heading">
-
-            <p>OUR SURVEY</p>
-
-            <h2>
-                What Did People Say?
-            </h2>
-
-            <p class="survey-intro">
-                Our Google Form survey received
-                <strong>100 responses.</strong>
-            </p>
-
+    <section class="content-section" id="water" aria-labelledby="water-title">
+      <div class="container">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Water quality</p>
+            <h2 id="water-title">Keep our water sources clean.</h2>
+          </div>
+          <p>Water pollution occurs when waste, sewage, or harmful substances contaminate rivers, lakes, groundwater, or other water sources.</p>
         </div>
 
-        <div class="result-container">
-
-            <div class="result-card good">
-
-                <h3>Good Awareness</h3>
-
-                <div class="percentage">
-                    50%
-                </div>
-
-                <p>
-                    50 Responses
-                </p>
-
-            </div>
-
-
-            <div class="result-card poor">
-
-                <h3>Poor Awareness</h3>
-
-                <div class="percentage">
-                    50%
-                </div>
-
-                <p>
-                    50 Responses
-                </p>
-
-            </div>
-
+        <div class="water-feature-grid">
+          <div class="water-visual" aria-hidden="true">
+            <div class="water-visual-sun"></div>
+            <div class="water-drop drop-one"></div>
+            <div class="water-drop drop-two"></div>
+            <div class="water-wave wave-one"></div>
+            <div class="water-wave wave-two"></div>
+            <span class="water-visual-caption">Every drop matters</span>
+          </div>
+          <div class="water-topic-list">
+            <article class="water-topic">
+              <span class="list-number">01</span>
+              <div><h3>Plastic waste</h3><p>Plastic litter can reach drains, rivers, lakes, and oceans. Reusable items and responsible disposal help reduce this pollution.</p></div>
+            </article>
+            <article class="water-topic">
+              <span class="list-number">02</span>
+              <div><h3>Untreated sewage</h3><p>Untreated sewage can introduce germs and pollutants into water, creating risks for people and aquatic life.</p></div>
+            </article>
+            <article class="water-topic">
+              <span class="list-number">03</span>
+              <div><h3>Chemical pollution</h3><p>Some chemicals from homes, farms, and industries can contaminate water. Proper handling and disposal are important.</p></div>
+            </article>
+          </div>
         </div>
 
-
-        <div class="survey-analysis">
-
-            <h3>Survey Finding</h3>
-
-            <p>
-                The survey shows that awareness is equally
-                divided between good and poor awareness.
-                This indicates that more environmental
-                education and awareness activities are needed.
-            </p>
-
+        <div class="info-callout info-callout-blue">
+          <span class="callout-icon" aria-hidden="true">i</span>
+          <p><strong>Remember:</strong> Clear-looking water is not necessarily safe to drink. Use trusted local health and water authorities for safety guidance. This website does not report live water-quality measurements.</p>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- ================= SOLUTIONS ================= -->
-
-    <section id="solutions" class="section">
-
+    <section class="content-section impact-section section-tinted" aria-labelledby="impact-title">
+      <div class="container">
         <div class="section-heading">
-
-            <p>TAKE ACTION</p>
-
-            <h2>
-                What Can We Do?
-            </h2>
-
+          <p class="eyebrow">Why it matters</p>
+          <h2 id="impact-title">Pollution affects more than the environment.</h2>
+          <p>Reducing pollution can help protect health, natural habitats, and the resources that communities depend on.</p>
         </div>
-
-        <div class="card-container">
-
-            <div class="info-card">
-
-                <div class="card-icon">🌳</div>
-
-                <h3>Plant More Trees</h3>
-
-                <p>
-                    Trees help improve air quality and
-                    support a healthier environment.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="card-icon">♻️</div>
-
-                <h3>Reduce Plastic</h3>
-
-                <p>
-                    Reduce single-use plastic and dispose
-                    of waste responsibly.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="card-icon">💧</div>
-
-                <h3>Save Water</h3>
-
-                <p>
-                    Avoid unnecessary water wastage and
-                    protect valuable water resources.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="card-icon">🚌</div>
-
-                <h3>Use Public Transport</h3>
-
-                <p>
-                    Public transport can help reduce
-                    vehicle emissions and air pollution.
-                </p>
-
-            </div>
-
+        <div class="impact-grid">
+          <article class="impact-card"><span aria-hidden="true">☼</span><h3>Human health</h3><p>Air pollution can affect breathing and overall health. Contaminated water can also carry health risks.</p></article>
+          <article class="impact-card"><span aria-hidden="true">🌡</span><h3>Climate and nature</h3><p>Some air pollutants contribute to warming and environmental changes that put pressure on ecosystems.</p></article>
+          <article class="impact-card"><span aria-hidden="true">🐟</span><h3>Aquatic life</h3><p>Waste and harmful substances in water can damage habitats and threaten fish and other aquatic organisms.</p></article>
+          <article class="impact-card"><span aria-hidden="true">🌱</span><h3>Natural habitats</h3><p>Pollution can damage soil, plants, and habitats that support biodiversity.</p></article>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- ================= AWARENESS ================= -->
-
-    <section class="section awareness-section">
-
-        <div class="section-heading">
-
-            <p>SPREAD AWARENESS</p>
-
-            <h2>
-                How Can We Create Awareness?
-            </h2>
-
+    <section class="content-section survey-section" id="survey" aria-labelledby="survey-title">
+      <div class="container survey-layout">
+        <div class="survey-copy">
+          <p class="eyebrow eyebrow-light">Awareness survey</p>
+          <h2 id="survey-title">What did people say?</h2>
+          <p>The project page contains a summary of 100 responses, split equally between good and poor awareness. Please verify these figures against your actual collected responses before presenting them as final results.</p>
+          <div class="survey-button-row">
+            <button class="button button-light" id="survey-form-button" type="button" disabled>Google Form link not added</button>
+          </div>
+          <p class="survey-link-status" id="survey-form-status" role="status" aria-live="polite">The Google Form URL has not been provided for this project yet.</p>
         </div>
+        <div class="survey-results" aria-label="Manually entered survey summary">
+          <div class="survey-results-heading">
+            <span class="results-icon" aria-hidden="true">◌</span>
+            <div><p class="card-kicker">Project summary</p><h3>Awareness snapshot</h3></div>
+          </div>
+          <div class="result-row">
+            <div class="result-label"><span>Good awareness</span><strong>50%</strong></div>
+            <div class="result-track" role="img" aria-label="Good awareness: 50 percent"><span class="result-fill fill-good"></span></div>
+            <p>50 responses shown in the current project content.</p>
+          </div>
+          <div class="result-row">
+            <div class="result-label"><span>Poor awareness</span><strong>50%</strong></div>
+            <div class="result-track" role="img" aria-label="Poor awareness: 50 percent"><span class="result-fill fill-poor"></span></div>
+            <p>50 responses shown in the current project content.</p>
+          </div>
+          <div class="result-total"><span>Total responses shown</span><strong>100</strong></div>
+          <p class="results-disclaimer">Manually entered summary; not connected to live Google Forms data.</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="content-section" id="solutions" aria-labelledby="solutions-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Take action</p>
+          <h2 id="solutions-title">Simple habits make a difference.</h2>
+          <p>Protecting the environment is a shared responsibility. Start with achievable choices at home, school, college, and in the community.</p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card"><span class="solution-icon icon-leaf" aria-hidden="true">✿</span><h3>Plant and protect trees</h3><p>Trees support ecosystems. Choose suitable local species and care for them as they grow.</p></article>
+          <article class="solution-card"><span class="solution-icon icon-recycle" aria-hidden="true">↻</span><h3>Reduce plastic and waste</h3><p>Carry reusable bags and bottles, separate waste, and use local recycling options where available.</p></article>
+          <article class="solution-card"><span class="solution-icon icon-water" aria-hidden="true">滴</span><h3>Use water carefully</h3><p>Fix leaks, avoid unnecessary waste, and keep oils, chemicals, and litter out of drains and waterways.</p></article>
+          <article class="solution-card"><span class="solution-icon icon-transport" aria-hidden="true">↗</span><h3>Choose cleaner travel</h3><p>Walk, cycle, share rides, or use public transport when practical and safe.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section awareness-section section-tinted" aria-labelledby="awareness-title">
+      <div class="container awareness-layout">
+        <div class="awareness-heading">
+          <p class="eyebrow">Spread awareness</p>
+          <h2 id="awareness-title">Share what you learn.</h2>
+          <p>Small conversations can help turn information into action.</p>
+        </div>
         <div class="awareness-list">
-
-            <p>✓ Conduct environmental awareness campaigns</p>
-
-            <p>✓ Organize school and college seminars</p>
-
-            <p>✓ Use social media for environmental education</p>
-
-            <p>✓ Organize cleanliness and plantation drives</p>
-
-            <p>✓ Encourage responsible waste disposal</p>
-
-            <p>✓ Promote water conservation in communities</p>
-
+          <p><span aria-hidden="true">✓</span> Organize environmental awareness activities at school or college.</p>
+          <p><span aria-hidden="true">✓</span> Share reliable environmental information with your community.</p>
+          <p><span aria-hidden="true">✓</span> Join local cleanliness and plantation drives.</p>
+          <p><span aria-hidden="true">✓</span> Encourage responsible waste disposal and water conservation.</p>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- ================= GOOGLE FORM ================= -->
-
-    <section class="survey-action">
-
-        <h2>
-            Want to Participate?
-        </h2>
-
-        <p>
-            Take our awareness survey and help us
-            understand environmental awareness.
-        </p>
-
-        <a href="#" class="btn primary-btn">
-            Take the Survey
-        </a>
-
+    <section class="content-section project-section" aria-labelledby="project-title">
+      <div class="container project-card">
+        <div>
+          <p class="eyebrow">College project</p>
+          <h2 id="project-title">Air &amp; Water Quality Awareness</h2>
+          <p class="project-note">Update the placeholder details below with your own project information before submitting or presenting the website.</p>
+        </div>
+        <dl class="project-details">
+          <div><dt>Student name</dt><dd>YOUR NAME</dd></div>
+          <div><dt>Class</dt><dd>YOUR CLASS</dd></div>
+          <div><dt>College</dt><dd>YOUR COLLEGE</dd></div>
+        </dl>
+      </div>
     </section>
+  </main>
 
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <h3>
-            Air & Water Quality Awareness
-        </h3>
-
-        <p>
-            A College Survey Project
-        </p>
-
-        <p>
-            Together for a cleaner and healthier future.
-        </p>
-
-    </footer>
-
-
-    <!-- Connecting JavaScript file -->
-    <script src="script.js"></script>
-
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">✿</span><span>Eco<span class="brand-accent">Aware</span></span></a>
+      <p>For cleaner air, safer water, and a healthier future.</p>
+      <a class="back-to-top" href="#home">Back to top ↑</a>
+      <p class="footer-small">College awareness project · <span id="current-year">2026</span></p>
+    </div>
+  </footer>
 </body>
-
 </html>
