@@ -964,3 +964,82 @@ select:focus-visible {
 
 /* Ensure quiz controls with the hidden attribute stay hidden despite button styles. */
 .quiz-controls [hidden], #quizResult[hidden], #quizRetry[hidden] { display: none !important; }
+
+
+/* Cartoon-style animated learning scenes: pollution changes into protection. */
+.cartoon-section { background: linear-gradient(180deg, #f5faf3 0%, #ffffff 100%); }
+.cartoon-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin-top:32px; }
+.cartoon-card { min-width:0; padding:22px; border:1px solid #dce9dd; border-radius:24px; background:#fff; box-shadow:0 12px 34px rgba(22,53,42,.07); }
+.cartoon-heading { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.cartoon-heading > span { font-size:30px; }
+.cartoon-heading h3 { font-size:clamp(20px,2.5vw,25px); }
+.cartoon-stage { height:250px; position:relative; overflow:hidden; border-radius:18px; isolation:isolate; }
+.water-stage { background:linear-gradient(#bce8f5 0 53%,#5ab6d7 53% 100%); }
+.air-stage { background:linear-gradient(#c7e9f7 0%,#e8f7e9 100%); }
+.scene-label { position:absolute; top:12px; left:12px; z-index:5; padding:5px 10px; border-radius:99px; font-size:12px; font-weight:800; }
+.dirty-label { color:#fff; background:#6c6254; animation:dirtyLabel 8s infinite; }
+.clean-label { color:#fff; background:#176b4d; opacity:0; animation:cleanLabel 8s infinite; }
+.factory { position:absolute; z-index:2; left:10%; bottom:42%; font-size:54px; animation:factoryFade 8s infinite; }
+.smoke,.air-smoke { position:absolute; z-index:2; font-size:27px; opacity:.8; }
+.smoke-one { left:17%; top:22%; animation:smokeRise 2.2s ease-in-out infinite; }
+.smoke-two { left:25%; top:16%; animation:smokeRise 2.6s .4s ease-in-out infinite; }
+.water-wave { position:absolute; left:-10%; width:120%; height:100px; bottom:-25px; border-radius:45% 50% 0 0; background:#269dc5; }
+.wave-one { animation:waveMove 3s ease-in-out infinite alternate; }
+.wave-two { bottom:-42px; background:#167da8; opacity:.7; animation:waveMove 4s ease-in-out infinite alternate-reverse; }
+.river-bank { position:absolute; z-index:2; bottom:45px; font-size:40px; }
+.bank-left { left:2%; }.bank-right { right:3%; }
+.litter { position:absolute; z-index:3; bottom:80px; font-size:24px; animation:litterClean 8s infinite; }
+.litter-one { left:42%; animation-delay:0s; }.litter-two { left:60%; animation-delay:.4s; }.litter-three { left:76%; animation-delay:.8s; }
+.cleaner { position:absolute; z-index:4; right:10%; bottom:35px; font-size:43px; opacity:0; animation:cleanerAppear 8s infinite; }
+.fish { position:absolute; z-index:3; left:45%; bottom:45px; font-size:32px; opacity:0; animation:fishAppear 8s infinite, fishSwim 3s ease-in-out infinite; }
+.sparkle { position:absolute; z-index:4; right:20%; top:35%; font-size:27px; opacity:0; animation:cleanerAppear 8s infinite; }
+.sun { position:absolute; right:12%; top:18px; font-size:38px; animation:sunGlow 3s ease-in-out infinite; }
+.air-factory { left:5%; bottom:34%; font-size:48px; }
+.air-smoke-one { left:14%; top:21%; animation:smokeRise 2s ease-in-out infinite, smokeFade 8s infinite; }
+.air-smoke-two { left:22%; top:15%; animation:smokeRise 2.5s .3s ease-in-out infinite, smokeFade 8s infinite; }
+.car { position:absolute; z-index:3; left:33%; bottom:35px; font-size:48px; animation:carMove 8s infinite; }
+.exhaust { position:absolute; z-index:2; left:40%; bottom:70px; font-size:24px; animation:exhaustFade 8s infinite; }
+.tree { position:absolute; z-index:3; bottom:28px; font-size:60px; opacity:0; animation:treeGrow 8s infinite; transform-origin:bottom center; }
+.tree-one { right:15%; }.tree-two { right:2%; animation-delay:.2s; }
+.breeze { position:absolute; z-index:4; left:45%; top:35%; font-size:34px; opacity:0; animation:breezeFlow 8s infinite; }
+.bird { position:absolute; z-index:4; top:28%; right:30%; font-size:28px; opacity:0; animation:birdFly 8s infinite; }
+.air-sparkle { position:absolute; right:28%; top:48%; font-size:28px; opacity:0; animation:cleanerAppear 8s infinite; }
+.cartoon-caption { margin:16px 0; color:var(--muted); line-height:1.7; }
+.cartoon-caption strong { color:var(--dark); }
+.cartoon-replay { border:0; cursor:pointer; background:var(--green); color:white; padding:10px 16px; border-radius:12px; font-weight:700; }
+.cartoon-note { text-align:center; margin-top:20px; color:var(--muted); font-size:13px; }
+.cartoon-stage.replay .litter,.cartoon-stage.replay .cleaner,.cartoon-stage.replay .fish,.cartoon-stage.replay .sparkle,
+.cartoon-stage.replay .dirty-label,.cartoon-stage.replay .clean-label,.cartoon-stage.replay .tree,.cartoon-stage.replay .breeze,
+.cartoon-stage.replay .bird,.cartoon-stage.replay .air-sparkle,.cartoon-stage.replay .air-smoke-one,.cartoon-stage.replay .air-smoke-two,
+.cartoon-stage.replay .exhaust,.cartoon-stage.replay .car,.cartoon-stage.replay .factory { animation:none; }
+.cartoon-stage.replay .litter { animation:litterClean 8s infinite; }
+.cartoon-stage.replay .cleaner,.cartoon-stage.replay .fish,.cartoon-stage.replay .sparkle,.cartoon-stage.replay .air-sparkle { animation:cleanerAppear 8s infinite; }
+.cartoon-stage.replay .dirty-label { animation:dirtyLabel 8s infinite; }
+.cartoon-stage.replay .clean-label { animation:cleanLabel 8s infinite; }
+.cartoon-stage.replay .tree { animation:treeGrow 8s infinite; }
+.cartoon-stage.replay .breeze { animation:breezeFlow 8s infinite; }
+.cartoon-stage.replay .bird { animation:birdFly 8s infinite; }
+.cartoon-stage.replay .air-smoke-one,.cartoon-stage.replay .air-smoke-two { animation:smokeRise 2s ease-in-out infinite,smokeFade 8s infinite; }
+.cartoon-stage.replay .exhaust { animation:exhaustFade 8s infinite; }
+.cartoon-stage.replay .car { animation:carMove 8s infinite; }
+.cartoon-stage.replay .factory { animation:factoryFade 8s infinite; }
+@keyframes dirtyLabel { 0%,42%{opacity:1} 52%,100%{opacity:0} }
+@keyframes cleanLabel { 0%,42%{opacity:0} 52%,100%{opacity:1} }
+@keyframes factoryFade { 0%,42%{opacity:1;filter:grayscale(.35)} 55%,100%{opacity:.4;filter:none} }
+@keyframes smokeRise { 0%{transform:translateY(8px) scale(.7);opacity:.8} 100%{transform:translateY(-25px) scale(1.2);opacity:.2} }
+@keyframes smokeFade { 0%,42%{opacity:.9} 55%,100%{opacity:0} }
+@keyframes litterClean { 0%,40%{opacity:1;transform:translateY(0) rotate(0)} 52%,100%{opacity:0;transform:translateY(30px) rotate(35deg)} }
+@keyframes cleanerAppear { 0%,45%{opacity:0;transform:translateY(12px) scale(.8)} 58%,100%{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes fishAppear { 0%,48%{opacity:0} 60%,100%{opacity:1} }
+@keyframes fishSwim { 0%,100%{transform:translateX(-5px)} 50%{transform:translateX(10px)} }
+@keyframes waveMove { from{transform:translateX(-3%)} to{transform:translateX(3%)} }
+@keyframes sunGlow { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+@keyframes carMove { 0%,40%{transform:translateX(0);opacity:1} 52%,100%{transform:translateX(80px);opacity:.15} }
+@keyframes exhaustFade { 0%,40%{opacity:.9} 52%,100%{opacity:0} }
+@keyframes treeGrow { 0%,44%{opacity:0;transform:scale(.5)} 60%,100%{opacity:1;transform:scale(1)} }
+@keyframes breezeFlow { 0%,48%{opacity:0;transform:translateX(-8px)} 60%,100%{opacity:1;transform:translateX(15px)} }
+@keyframes birdFly { 0%,48%{opacity:0;transform:translateX(-10px)} 60%,100%{opacity:1;transform:translateX(12px)} }
+@media (max-width:700px) { .cartoon-grid{grid-template-columns:1fr}.cartoon-card{padding:16px}.cartoon-stage{height:220px} }
+@media (prefers-reduced-motion:reduce) {
+ .cartoon-stage *, .cartoon-stage::before, .cartoon-stage::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
+}
