@@ -150,6 +150,14 @@ function applyLanguage(lang) {
         } else button.removeAttribute("data-localized-title");
     });
     localStorage.setItem("ecoaware-language", lang);
+    // Ask Google Forms to localize its own interface. The questions inside an externally hosted form
+    // remain controlled by the form owner and cannot be translated by this page's JavaScript.
+    const formFrame = document.querySelector(".survey-embed-wrap iframe");
+    const formOpenLink = document.querySelector(".survey-open-btn");
+    const formBase = "https://docs.google.com/forms/d/1PbjYZBB9u0seBBI_XEg2IZn3Rf_zhGF-YJWIasPxsMQ/viewform";
+    const formLocale = lang === "hi" ? "hi" : lang === "mr" ? "mr" : "en";
+    if (formFrame) formFrame.src = formBase + "?embedded=true&hl=" + formLocale;
+    if (formOpenLink) formOpenLink.href = formBase + "?hl=" + formLocale;
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
 }
 if (languageSelect) {
