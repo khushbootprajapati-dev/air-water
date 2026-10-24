@@ -198,6 +198,7 @@ function applyLanguage(lang) {
             : lang === "mr"
                 ? "सोप्या आकडेवारी आणि चित्रांच्या मदतीने हवा व पाण्याच्या प्रदूषणाबद्दल जाणून घ्या आणि आपल्या पर्यावरणाचे रक्षण कसे करता येईल ते समजून घ्या."
                 : "Learn about air and water pollution through simple data visualizations and discover how we can protect our environment.";
+    }
     const langNames = {en:["Language","English","हिंदी","मराठी"],hi:["भाषा","अंग्रेज़ी","हिंदी","मराठी"],mr:["भाषा","इंग्रजी","हिंदी","मराठी"]};
     const options = languageSelect ? Array.from(languageSelect.options) : [];
     if (options.length === 3) options.forEach((o,i) => { o.textContent = langNames[lang][i+1]; });
